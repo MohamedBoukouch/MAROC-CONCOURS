@@ -7,7 +7,7 @@ const HomeView = () => {
       <NewFeaturesButton />
       
       <h1 className='pt-7 font-Oswald'>Your digital study 9niyet!!</h1>
-      <h2>The ultimate platform for ENSAM Casablanca students to connect, 
+      <h2>The ultimate platform for CPGE Maroc students to connect, 
           collaborate, and succeed academically and professionally.
       </h2>
 
