@@ -1,104 +1,133 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import concoursList from "../data/concours.json";
 
 const ConcoursPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedNiveau, setSelectedNiveau] = useState("");
+  const [selectedChoix, setSelectedChoix] = useState("");
+  const [selectedDomaine, setSelectedDomaine] = useState("");
+  const [showAd, setShowAd] = useState(false);
+  const [pendingPdfUrl, setPendingPdfUrl] = useState(null);
 
-  // Static list of concours (PDFs) with availability status
-  const concoursList = [
-    {
-      id: 1,
-      title: "CNC A",
-      date: "2020/2021",
-      pdfUrl: "https://drive.google.com/file/d/1fjrLdx7c5PAuh7MuGQVkWBFvSk0tkpB0/view",
-      isAvailable: true,
-    },
-    {
-      id: 2,
-      title: "CNC B",
-      date: "2021/2022",
-      pdfUrl: "https://drive.google.com/file/d/1fjrLdx7c5PAuh7MuGQVkWBFvSk0tkpB0/view",
-      isAvailable: true,
-    },
-    {
-      id: 3,
-      title: "CNC C",
-      date: "2022/2023",
-      pdfUrl: "https://drive.google.com/file/d/1fjrLdx7c5PAuh7MuGQVkWBFvSk0tkpB0/view",
-      isAvailable: true,
-    },
-    {
-      id: 4,
-      title: "CNC A",
-      date: "2023/2024",
-      pdfUrl: "https://drive.google.com/file/d/1fjrLdx7c5PAuh7MuGQVkWBFvSk0tkpB0/view",
-      isAvailable: true,
-    },
-    {
-      id: 5,
-      title: "CNC D",
-      date: "2024/2025",
-      pdfUrl: "https://drive.google.com/file/d/1fjrLdx7c5PAuh7MuGQVkWBFvSk0tkpB0/view",
-      isAvailable: true,
-    },
-  ];
+  const filteredConcours = concoursList.filter((concours) => {
+    return (
+      (searchQuery === "" ||
+        concours.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        concours.date.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        concours.niveau.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        concours.choix.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        concours.domaine.toLowerCase().includes(searchQuery.toLowerCase())) &&
+      (selectedNiveau === "" || concours.niveau === selectedNiveau) &&
+      (selectedChoix === "" || concours.choix === selectedChoix) &&
+      (selectedDomaine === "" || concours.domaine === selectedDomaine)
+    );
+  });
 
-  const filteredConcours = concoursList.filter((concours) =>
-    concours.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    concours.date.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const handleShowAd = (url) => {
+    setPendingPdfUrl(url);
+    setShowAd(true);
+  };
 
-  const handleOpenPdf = (url) => {
-    try {
-      // Open the Google Drive URL directly in a new tab
-      window.open(url, "_blank");
-    } catch (error) {
-      console.error("Error opening PDF:", error);
+  const handleOpenPdf = () => {
+    if (pendingPdfUrl) {
+      window.open(pendingPdfUrl, "_blank");
+      setShowAd(false);
+      setPendingPdfUrl(null);
     }
   };
-  
 
   return (
-    <div className="min-h-screen bg-slate-50 p-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-center text-blue-600">Concours List</h1>
-        <div className="flex justify-center mt-4">
-          <input
-            type="text"
-            placeholder="Search Concours"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="p-2 w-1/2 border-2 border-gray-300 rounded-md"
-          />
-        </div>
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="text-center mb-6">
+        <h1 className="text-4xl font-extrabold text-blue-700">Concours</h1>
+        <p className="text-gray-600 mt-2 text-lg">Trouvez les meilleures opportunités pour votre avenir</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
+        <input
+          type="text"
+          placeholder="Rechercher un concours..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="p-3 w-full md:w-1/3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
+        />
+        <select
+          onChange={(e) => setSelectedNiveau(e.target.value)}
+          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+        >
+          <option value="">Tous les niveaux</option>
+          <option value="bac+2">Bac +2</option>
+          <option value="bac+3">Bac +3</option>
+        </select>
+        <select
+          onChange={(e) => setSelectedChoix(e.target.value)}
+          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+        >
+          <option value="">Tous les diplômes</option>
+          <option value="licence">Licence</option>
+          <option value="cycle">Cycle</option>
+          <option value="master">Master</option>
+        </select>
+        <select
+          onChange={(e) => setSelectedDomaine(e.target.value)}
+          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+        >
+          <option value="">Tous les domaines</option>
+          <option value="informatique">Informatique</option>
+          <option value="industrielle">Industrielle</option>
+          <option value="economie">Économie</option>
+        </select>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredConcours.length === 0 ? (
-          <p className="text-center text-lg text-gray-500">No concours found</p>
+          <p className="text-center text-lg text-gray-500">Aucun concours trouvé</p>
         ) : (
           filteredConcours.map((concours) => (
             <div
               key={concours.id}
-              className={`border-2 p-4 rounded-lg shadow-md ${
-                concours.isAvailable ? "bg-green-100" : "bg-gray-100"
-              } transition-colors duration-300`}
+              className={`p-6 rounded-xl shadow-lg border-2 transition-all duration-300 ${
+                concours.isAvailable
+                  ? "bg-green-50 border-green-500 hover:shadow-xl"
+                  : "bg-gray-100 border-gray-400"
+              }`}
             >
-              <h2 className="font-semibold text-xl text-blue-600">{concours.title}</h2>
-              <p className="text-sm text-gray-500">{concours.date}</p>
+              <h2 className="font-semibold text-2xl text-blue-700">{concours.title}</h2>
+              <p className="text-sm text-gray-500 mt-1">{concours.date}</p>
+              <p className="text-sm text-gray-700">Niveau : <span className="font-semibold">{concours.niveau}</span></p>
+              <p className="text-sm text-gray-700">Diplôme : <span className="font-semibold">{concours.choix}</span></p>
+              <p className="text-sm text-gray-700">Domaine : <span className="font-semibold">{concours.domaine}</span></p>
+              
               <button
-                onClick={() => handleOpenPdf(concours.pdfUrl)}
-                className={`mt-4 px-4 py-2 rounded-full ${
-                  concours.isAvailable ? "bg-green-500" : "bg-gray-400"
-                } text-white`}
+                onClick={() => handleShowAd(concours.pdfUrl)}
+                className={`mt-4 w-full px-5 py-2.5 text-lg font-semibold rounded-lg transition-all duration-200 ${
+                  concours.isAvailable
+                    ? "bg-green-500 text-white hover:bg-green-600"
+                    : "bg-gray-400 text-gray-200 cursor-not-allowed"
+                }`}
                 disabled={!concours.isAvailable}
               >
-                {concours.isAvailable ? "Open PDF" : "Not Available"}
+                {concours.isAvailable ? "Voir les détails" : "Non disponible"}
               </button>
             </div>
           ))
         )}
       </div>
+
+      {showAd && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md">
+          <div className="bg-white p-8 rounded-lg shadow-lg text-center w-80">
+            <h2 className="text-2xl font-bold text-red-500">Publicité sponsorisée</h2>
+            <p className="text-gray-700 mt-3">Cette publicité précède l'accès aux détails du concours.</p>
+            <button
+              onClick={handleOpenPdf}
+              className="mt-4 px-5 py-2.5 w-full bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all"
+            >
+              Continuer vers le concours
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
