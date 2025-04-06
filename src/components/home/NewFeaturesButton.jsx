@@ -2,14 +2,17 @@ import React from 'react';
 
 const NewFeaturesButton = () => {
   return (
-    <div className='pt-7 FLEX items-center justify-center'>
-      <button className="  flex items-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-200 p-1 text-1xl">
-      <div className="bg-blue-600 text-white rounded-full py-2 px-4 mr-2 ">New</div>
-      <span className="text-gray-700 font-medium py-2 px-4">New Features Coming Soon</span>
-      <span className="text-gray-700 mr-4">
+    <div className="flex items-center justify-center pt-7 px-4">
+      <button className="flex items-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-300 shadow-sm hover:shadow-md overflow-hidden border border-gray-200">
+        <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-bold py-2 px-4">
+          Nouveautés
+        </div>
+        <span className="text-gray-800 font-medium text-sm sm:text-base py-2 px-4 whitespace-nowrap">
+          Fonctionnalités à venir
+        </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
+          className="h-5 w-5 text-gray-500 mr-3"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -19,8 +22,7 @@ const NewFeaturesButton = () => {
             clipRule="evenodd"
           />
         </svg>
-      </span>
-    </button>
+      </button>
     </div>
   );
 };

@@ -109,7 +109,7 @@ const HomeView = () => {
   return (
     <div className='min-h-screen bg-gray-50'>
       <div className='flex flex-col justify-center items-center container mx-auto px-4 py-12'>
-        <NewFeaturesButton />
+        {/* <NewFeaturesButton /> */}
         
         <div className='text-center mb-16'>
           <h1 className='pt-7 font-Oswald text-5xl font-bold text-gray-800'>Votre Plateforme des <span className='text-blue-600 '>Concours !!</span></h1>
@@ -126,7 +126,7 @@ const HomeView = () => {
         <div className="w-full">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-800 mb-2">They Love us!</h3>
-            <h4 className="text-xl text-gray-600">What your fellow MAROC-CONCOURS say about us</h4>
+            <h4 className="text-xl text-gray-600">What your fellow ensamiers say about us</h4>
           </div>
 
           {/* Slider des témoignages */}
