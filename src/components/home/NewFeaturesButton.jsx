@@ -2,7 +2,7 @@ import React from 'react';
 
 const NewFeaturesButton = () => {
   return (
-    <div className='pt-7'>
+    <div className='pt-7 FLEX items-center justify-center'>
       <button className="  flex items-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-200 p-1 text-1xl">
       <div className="bg-blue-600 text-white rounded-full py-2 px-4 mr-2 ">New</div>
       <span className="text-gray-700 font-medium py-2 px-4">New Features Coming Soon</span>

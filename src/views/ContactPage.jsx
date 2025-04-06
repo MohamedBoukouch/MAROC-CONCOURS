@@ -98,16 +98,16 @@ const ContactPage = () => {
       <div className="mt-10 text-center">
         <h2 className="text-1.5xl font-bold text-blue-700 mb-4">Follow Us</h2>
         <div className="flex justify-center space-x-6">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-600 hover:text-blue-800">
+          {/* <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-600 hover:text-blue-800">
             <FaFacebook />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-pink-600 hover:text-pink-800">
+          </a> */}
+          <a href="https://www.instagram.com/mohmadboukouch/" target="_blank" rel="noopener noreferrer" className="text-2xl text-pink-600 hover:text-pink-800">
             <FaInstagram />
           </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-400 hover:text-blue-600">
+          <a href="https://www.x.com/medbkch" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-400 hover:text-blue-600">
             <FaTwitter />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-700 hover:text-blue-900">
+          <a href="https://www.linkedin.com/in/mohamed-boukouch-b889b824a/" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-700 hover:text-blue-900">
             <FaLinkedin />
           </a>
         </div>
@@ -119,7 +119,7 @@ const ContactPage = () => {
         <p className="text-lg text-gray-700">
           If you prefer, you can also email us directly at
           <a href="mailto:your-email@example.com" className="text-blue-600 font-semibold hover:underline ml-1">
-            <AiOutlineMail className="inline-block mb-1" /> boukouchmohamed@gmail.com.com
+            <AiOutlineMail className="inline-block mb-1" /> boukouchmohamed7@gmail.com.com
           </a>
         </p>
       </div>
