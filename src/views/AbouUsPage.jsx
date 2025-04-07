@@ -5,6 +5,7 @@ import teamImage from '../assets/users/user1.png';
 import logo from '../assets/logo.png';
 import admin1 from '../assets/admins/admin1.png';
 import admin2 from '../assets/admins/admin2.jpeg';
+import admin3 from '../assets/admins/admin3.jpeg';
 
 const AboutUsPage = () => {
 
@@ -71,20 +72,20 @@ const AboutUsPage = () => {
             {
               name: "Mohamed Boukouch",
               role: "Fondateur & Développeur",
-              bio: "Étudiant ENSIAS",
+              bio: "Étudiant ENSIASD TAROUDANT",
               img: admin1
             },
             {
               name: "Yassine Bouachrine",
               role: "Responsable Media",
-              bio: "Étudiant ENSIAS",
+              bio: "Étudiant ENSIASD TAROUDANT",
               img: admin2
             },
             {
-              name: "Notre Communauté",
-              role: "Membres Actifs",
-              bio: "Étudiants de toutes les écoles marocaines",
-              img: teamImage
+              name: "Khadija Asehnoune",
+              role: "Membre Actif",
+              bio: "Étudiante ENSAM CASA",
+              img: admin3
             }
           ].map((member, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-100">

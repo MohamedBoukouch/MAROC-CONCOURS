@@ -3,12 +3,12 @@ import NewFeaturesButton from '../components/home/NewFeaturesButton';
 import concoursData from '../data/concours.json';
 
 import user1 from '../assets/users/user2.jpeg';
-import user2 from '../assets/users/user1.png';
-import user3 from '../assets/users/user1.png';
-import user4 from '../assets/users/user1.png';
-import user5 from '../assets/users/user1.png';
-import user6 from '../assets/users/user1.png';
-import user7 from '../assets/users/user1.png';
+import user2 from '../assets/users/user3.jpg';
+import user3 from '../assets/users/user3.jpg';
+import user4 from '../assets/users/user4.jpeg';
+import user5 from '../assets/users/user5.jpg';
+import user6 from '../assets/users/user6.jpg';
+import user7 from '../assets/users/user7.jpg';
 
 const HomeView = () => {
   const reviews = [
@@ -42,16 +42,16 @@ const HomeView = () => {
     },
     {
       id: 5,
-      text: "Les vidéos explicatives m'ont sauvé pour les concours EHTP. Les professeurs expliquent mieux qu'à l'école!",
-      author: "Karim E.",
-      role: "Élève EHTP",
+      text: "J'ai préparé mon concours ENSAM en 2 mois seulement grâce aux ressources bien organisées sur la plateforme.",
+      author: "Nadia S.",
+      role: "Élève ENSAM",
       image: user5
     },
     {
       id: 6,
-      text: "J'ai préparé mon concours ENSAM en 2 mois seulement grâce aux ressources bien organisées sur la plateforme.",
-      author: "Nadia S.",
-      role: "Élève ENSAM",
+      text: "Les vidéos explicatives m'ont sauvé pour les concours EHTP. Les professeurs expliquent mieux qu'à l'école!",
+      author: "Karim E.",
+      role: "Élève EHTP",
       image: user6
     },
     {
@@ -126,7 +126,7 @@ const HomeView = () => {
         <div className="w-full">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-800 mb-2">They Love us!</h3>
-            <h4 className="text-xl text-gray-600">What your fellow ensamiers say about us</h4>
+            <h4 className="text-xl text-gray-600">What your fellow CONCOURS-MAROC say about us</h4>
           </div>
 
           {/* Slider des témoignages */}
