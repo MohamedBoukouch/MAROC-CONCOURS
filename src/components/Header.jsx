@@ -32,7 +32,7 @@ const Header = () => {
       >
         <img src={logo} alt="Logo" className="w-10 h-10" />
         <span className="ml-3 text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors">
-          CONCOURS MAROC
+          MAROC CONCOURS
         </span>
       </button>
 
