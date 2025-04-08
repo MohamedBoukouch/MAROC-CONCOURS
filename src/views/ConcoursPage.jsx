@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AdComponent from "../ADS/GoogleAd"; // Import the AdComponent
 import concoursList from "../data/concours.json";
 
 const ConcoursPage = () => {
@@ -25,15 +26,19 @@ const ConcoursPage = () => {
 
   const handleShowAd = (url) => {
     setPendingPdfUrl(url);
-    setShowAd(true);
+    setShowAd(true); // Show ad when PDF URL is selected
   };
 
   const handleOpenPdf = () => {
     if (pendingPdfUrl) {
       window.open(pendingPdfUrl, "_blank");
-      setShowAd(false);
+      setShowAd(false); // Hide ad when PDF is opened
       setPendingPdfUrl(null);
     }
+  };
+
+  const handleAdClose = () => {
+    setShowAd(false); // Close ad if skipped
   };
 
   return (
@@ -119,11 +124,7 @@ const ConcoursPage = () => {
           <div className="bg-white p-8 rounded-lg shadow-lg text-center w-80">
             <h2 className="text-2xl font-bold text-red-500">Publicité sponsorisée</h2>
             <p className="text-gray-700 mt-3">Cette publicité précède l'accès aux détails du concours.</p>
-            <div id="ad-container" className="mt-4">
-              {/* Here you can insert your ad network script or ad placeholder */}
-              <div id="ezoic-pub-ad-placeholder-101"></div>
-              <div id="ezoic-pub-ad-placeholder-102"></div>
-            </div>
+            <AdComponent onAdClose={handleAdClose} /> {/* Show Ad Component */}
             <button
               onClick={handleOpenPdf}
               className="mt-4 px-5 py-2.5 w-full bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all"
