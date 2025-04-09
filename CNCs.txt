@@ -2,3 +2,15 @@ INSEA
 INPT
 FST TANGER
 FST SETTAT
+FST Mohammedia
+FST Merrakch
+FST benimellal
+
+FP beniellal
+FS tetouan
+FS Merrakch
+FS Kenitra
+
+ENSMR
+ENSIAS
+ENSET
