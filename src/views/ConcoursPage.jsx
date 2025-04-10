@@ -26,7 +26,10 @@ const ConcoursPage = () => {
 
   const handleShowAd = (url) => {
     setPendingPdfUrl(url);
-    setShowAd(true); // Show ad when PDF URL is selected
+    //if i want ative ads i have to dicomment this line code and delette window.opn ligne code to active this ads befor open the document 
+    // setShowAd(true); // Show ad when PDF URL is selected
+
+    window.open(url, "_blank");
   };
 
   const handleOpenPdf = () => {
