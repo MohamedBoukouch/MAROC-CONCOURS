@@ -4,79 +4,57 @@ import concoursList from "../data/concours.json";
 const ConcoursPage = () => {
   // Configuration from Vite environment variables
   const AD_ZONE_ID = import.meta.env.VITE_AD_ZONE_ID;
-  const AD_DELAY = parseInt(import.meta.env.VITE_AD_DELAY) || 5000; // Default fallback
+  const AD_DELAY = parseInt(import.meta.env.VITE_AD_DELAY) || 5000;
   const AD_SCRIPT_URL = import.meta.env.VITE_AD_SCRIPT_URL;
 
-  // State
+  // State management
   const [searchQuery, setSearchQuery] = useState("");
   const [filters, setFilters] = useState({ 
     niveau: "", 
     choix: "", 
     domaine: "" 
   });
-  const [showAdModal, setShowAdModal] = useState(false);
   const [currentConcours, setCurrentConcours] = useState(null);
-  const [adCountdown, setAdCountdown] = useState(AD_DELAY / 1000);
-  const [visitedConcours, setVisitedConcours] = useState(new Set());
+  const [clickCounts, setClickCounts] = useState({}); // Track click count for each concours
 
-  // Initialize ad script
+  // Initialize ad script (but now it will be used conditionally based on click)
   useEffect(() => {
-    if (AD_SCRIPT_URL && AD_ZONE_ID) {
-      const script = document.createElement("script");
-      script.src = AD_SCRIPT_URL.startsWith('//') 
-        ? `https:${AD_SCRIPT_URL}` 
-        : AD_SCRIPT_URL;
-      script.setAttribute("data-zone", AD_ZONE_ID);
-      script.async = true;
-      script.setAttribute("data-cfasync", "false");
-      script.onerror = () => window._villtxg?.();
-      script.onload = () => window._vqwzz?.();
-      document.body.appendChild(script);
-      
-      return () => {
-        document.body.removeChild(script);
-      };
-    }
-  }, [AD_SCRIPT_URL, AD_ZONE_ID]);
-
-  // Handle ad countdown
-  useEffect(() => {
-    let timer;
-    if (showAdModal && adCountdown > 0) {
-      timer = setTimeout(() => {
-        setAdCountdown(prev => prev - 1);
-      }, 1000);
-    } else if (showAdModal && adCountdown === 0) {
-      handleAdRedirect();
-    }
-    
-    return () => clearTimeout(timer);
-  }, [showAdModal, adCountdown]);
-
-  const handleConcoursClick = (concours) => {
-    // First open the PDF immediately
-    if (concours.pdfUrl) {
-      window.open(concours.pdfUrl, "_blank");
-    }
-    
-    if (visitedConcours.has(concours.id)) {
+    if (!AD_SCRIPT_URL || !AD_ZONE_ID) {
+      console.error("Missing ad configuration");
       return;
     }
 
-    // Show ad modal and start countdown
-    setCurrentConcours(concours);
-    setAdCountdown(AD_DELAY / 1000);
-    setShowAdModal(true);
-    setVisitedConcours(prev => new Set(prev).add(concours.id));
-  };
+    const script = document.createElement("script");
+    script.src = AD_SCRIPT_URL.startsWith('//') 
+      ? `https:${AD_SCRIPT_URL}` 
+      : AD_SCRIPT_URL;
+    script.setAttribute("data-zone", AD_ZONE_ID);
+    script.async = true;
+    script.setAttribute("data-cfasync", "false");
+    script.onerror = () => window._villtxg?.();
+    script.onload = () => window._vqwzz?.();
+    document.body.appendChild(script);
 
-  const handleAdRedirect = () => {
-    window._villtxg?.();
-    setShowAdModal(false);
-  };
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [AD_SCRIPT_URL, AD_ZONE_ID]);
 
-  const handleSkipAd = () => {
-    setShowAdModal(false);
+  const handleConcoursClick = (concours) => {
+    if (!concours.isAvailable) return;
+
+    // Update click count for concours
+    setClickCounts(prev => {
+      const newCount = (prev[concours.id] || 0) + 1;
+      return { ...prev, [concours.id]: newCount };
+    });
+
+    // If clicked third time, show the content and redirect
+    if ((clickCounts[concours.id] || 0) >= 2) {
+      setCurrentConcours(concours);
+      // Redirect to the concours content
+      window.open(concours.pdfUrl, "_blank");
+    }
   };
 
   const handleFilterChange = (filterName, value) => {
@@ -99,34 +77,6 @@ const ConcoursPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      {/* Ad Modal */}
-      {showAdModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
-            <h2 className="text-2xl font-bold text-blue-600 mb-4">
-              Publicité Sponsorisée
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Merci d'avoir consulté le concours. Vous serez redirigé vers notre sponsor dans {adCountdown} secondes...
-            </p>
-            <div className="flex justify-between mt-6">
-              <button
-                onClick={handleSkipAd}
-                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition"
-              >
-                Passer la publicité
-              </button>
-              <button
-                onClick={handleAdRedirect}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-              >
-                Voir la publicité maintenant
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Page Header */}
       <div className="text-center mb-6">
         <h1 className="text-4xl font-extrabold text-blue-700">Concours</h1>
@@ -135,7 +85,7 @@ const ConcoursPage = () => {
         </p>
       </div>
 
-      {/* Search and Filters */}
+      {/* Search and Filters Section */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
         <input
           type="text"
@@ -163,23 +113,22 @@ const ConcoursPage = () => {
       {/* Concours List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredConcours.length === 0 ? (
-          <p className="text-center text-lg text-gray-500 col-span-full">
+          <p className="text-center text-lg text-gray-500 col-span-full py-10">
             Aucun concours trouvé
           </p>
         ) : (
           filteredConcours.map((concours) => (
             <div
               key={concours.id}
-              className={`p-6 rounded-xl shadow-lg border-2 transition-all ${
-                concours.isAvailable
-                  ? "bg-green-50 border-green-500 hover:shadow-xl"
-                  : "bg-gray-100 border-gray-400"
+              className={`p-6 rounded-xl shadow-lg border-2 transition-all ${concours.isAvailable
+                ? "bg-green-50 border-green-500 hover:shadow-xl"
+                : "bg-gray-100 border-gray-400"
               }`}
             >
-              <h2 className="font-semibold text-2xl text-blue-700">
+              <h2 className="font-semibold text-2xl text-blue-700 mb-2">
                 {concours.title || "Sans titre"}
               </h2>
-              <div className="text-sm space-y-1 mt-2 text-gray-700">
+              <div className="text-sm space-y-1 text-gray-700">
                 {["date", "niveau", "choix", "domaine"].map((field) => (
                   <p key={field}>
                     {field.charAt(0).toUpperCase() + field.slice(1)}:{" "}
@@ -191,10 +140,9 @@ const ConcoursPage = () => {
               <button
                 onClick={() => handleConcoursClick(concours)}
                 disabled={!concours.isAvailable}
-                className={`mt-4 w-full px-5 py-2.5 text-lg font-semibold rounded-lg transition-all ${
-                  concours.isAvailable
-                    ? "bg-green-500 text-white hover:bg-green-600"
-                    : "bg-gray-400 text-gray-200 cursor-not-allowed"
+                className={`mt-4 w-full px-5 py-2.5 text-lg font-semibold rounded-lg transition-all ${concours.isAvailable
+                  ? "bg-green-500 text-white hover:bg-green-600"
+                  : "bg-gray-400 text-gray-200 cursor-not-allowed"
                 }`}
               >
                 {concours.isAvailable ? "Voir les détails" : "Non disponible"}
