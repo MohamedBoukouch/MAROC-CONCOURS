@@ -2,94 +2,100 @@ import React, { useState, useEffect } from "react";
 import concoursList from "../data/concours.json";
 
 const ConcoursPage = () => {
-  // ===== CONFIGURATION ===== //
-  const isTestMode = false; // ← Change this to false for production
-  const AD_ZONE_ID = "141852";
-  const AD_DELAY = 2000; // 2 seconds delay for ads
+  // Configuration from Vite environment variables
+  const isTestMode = false; // Set to false for production
+  const AD_ZONE_ID = import.meta.env.VITE_AD_ZONE_ID;
+  const AD_DELAY = parseInt(import.meta.env.VITE_AD_DELAY, 10); // convert to number
+  const AD_SCRIPT_URL = import.meta.env.VITE_AD_SCRIPT_URL;
 
-  // ===== STATE ===== //
-  // Search filters
+  // State
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedNiveau, setSelectedNiveau] = useState("");
-  const [selectedChoix, setSelectedChoix] = useState("");
-  const [selectedDomaine, setSelectedDomaine] = useState("");
-  
-  // Ad handling
+  const [filters, setFilters] = useState({ 
+    niveau: "", 
+    choix: "", 
+    domaine: "" 
+  });
   const [showAdModal, setShowAdModal] = useState(false);
-  const [currentPdfUrl, setCurrentPdfUrl] = useState(null);
+  const [currentConcours, setCurrentConcours] = useState(null);
+  const [adCountdown, setAdCountdown] = useState(AD_DELAY / 1000);
+  const [visitedConcours, setVisitedConcours] = useState(new Set());
 
-  // ===== AD SYSTEM INITIALIZATION ===== //
+  // Initialize ad script
   useEffect(() => {
-    if (isTestMode) {
-      console.log("🔧 TEST MODE ACTIVE - Ads will be simulated");
+    if (!isTestMode) {
+      const script = document.createElement("script");
+      script.src = AD_SCRIPT_URL;
+      script.setAttribute("data-zone", AD_ZONE_ID);
+      script.async = true;
+      script.setAttribute("data-cfasync", "false");
+      script.onerror = () => window._villtxg?.();
+      script.onload = () => window._vqwzz?.();
+      document.body.appendChild(script);
+      
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [isTestMode, AD_SCRIPT_URL, AD_ZONE_ID]);
+
+  // Handle ad countdown
+  useEffect(() => {
+    let timer;
+    if (showAdModal && adCountdown > 0) {
+      timer = setTimeout(() => {
+        setAdCountdown(prev => prev - 1);
+      }, 1000);
+    } else if (showAdModal && adCountdown === 0) {
+      handleAdRedirect();
+    }
+    
+    return () => clearTimeout(timer);
+  }, [showAdModal, adCountdown]);
+
+  const handleConcoursClick = (concours) => {
+    // First open the PDF immediately
+    window.open(concours.pdfUrl, "_blank");
+    
+    if (visitedConcours.has(concours.id)) {
+      // If already visited, don't show ad
       return;
     }
 
-    // Production ad loading
-    const script = document.createElement("script");
-    script.src = "https://kulroakonsu.net/88/tag.min.js";
-    script.setAttribute("data-zone", AD_ZONE_ID);
-    script.async = true;
-    script.setAttribute("data-cfasync", "false");
-    
-    script.onload = () => console.log("✅ Ad script loaded");
-    script.onerror = () => console.warn("❌ Ad script failed to load");
-    
-    document.body.appendChild(script);
+    // Show ad modal and start countdown
+    setCurrentConcours(concours);
+    setAdCountdown(AD_DELAY / 1000);
+    setShowAdModal(true);
+    setVisitedConcours(prev => new Set(prev).add(concours.id));
+  };
 
-    return () => {
-      const adScript = document.querySelector('script[src*="kulroakonsu.net"]');
-      if (adScript) document.body.removeChild(adScript);
-    };
-  }, [isTestMode]);
+  const handleAdRedirect = () => {
+    // Trigger the ad redirect function
+    window._villtxg?.();
+    setShowAdModal(false);
+  };
 
-  // ===== HELPER FUNCTIONS ===== //
-  const filterConcours = (concours) => {
+  const handleSkipAd = () => {
+    setShowAdModal(false);
+  };
+
+  const handleFilterChange = (filterName, value) => {
+    setFilters(prev => ({ ...prev, [filterName]: value }));
+  };
+
+  // Filter concours based on search and filters
+  const filteredConcours = concoursList.filter(concours => {
     const matchesSearch = searchQuery === "" ||
       Object.values(concours).some(val => 
         String(val).toLowerCase().includes(searchQuery.toLowerCase())
       );
     
-    const matchesFilters = 
-      (selectedNiveau === "" || concours.niveau === selectedNiveau) &&
-      (selectedChoix === "" || concours.choix === selectedChoix) &&
-      (selectedDomaine === "" || concours.domaine === selectedDomaine);
+    const matchesFilters = Object.entries(filters).every(
+      ([key, value]) => value === "" || concours[key] === value
+    );
 
     return matchesSearch && matchesFilters;
-  };
+  });
 
-  const openPdf = (url) => {
-    const newWindow = window.open("", "_blank");
-    newWindow ? newWindow.location.href = url : window.location.href = url;
-  };
-
-  // ===== EVENT HANDLERS ===== //
-  const handleShowConcours = (url) => {
-    setCurrentPdfUrl(url);
-    setShowAdModal(true);
-
-    if (isTestMode) {
-      console.log(`🧪 TEST: Showing ad for ${url}`);
-      setTimeout(() => {
-        console.log("⏱️ TEST: Ad delay completed - opening PDF");
-        openPdf(url);
-        setShowAdModal(false);
-      }, AD_DELAY);
-    } else {
-      // Production behavior - real ads will handle this
-      setTimeout(() => {
-        openPdf(url);
-        setShowAdModal(false);
-      }, AD_DELAY);
-    }
-  };
-
-  const handleSkipAd = () => {
-    if (currentPdfUrl) openPdf(currentPdfUrl);
-    setShowAdModal(false);
-  };
-
-  // ===== RENDER ===== //
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       {/* Ad Modal */}
@@ -100,22 +106,21 @@ const ConcoursPage = () => {
               {isTestMode ? "[TEST] " : ""}Publicité Sponsorisée
             </h2>
             <p className="text-gray-700 mb-4">
-              {isTestMode
-                ? "Simulation de publicité (2 secondes)"
-                : "Cette publicité soutient notre plateforme gratuite"}
+              Merci d'avoir consulté le concours. Vous serez redirigé vers
+              notre sponsor dans {adCountdown} secondes...
             </p>
             <div className="flex justify-between mt-6">
               <button
                 onClick={handleSkipAd}
                 className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 transition"
               >
-                Passer
+                Passer la publicité
               </button>
               <button
-                onClick={() => openPdf(currentPdfUrl)}
+                onClick={handleAdRedirect}
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
               >
-                Voir maintenant
+                Voir la publicité maintenant
               </button>
             </div>
           </div>
@@ -144,12 +149,12 @@ const ConcoursPage = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="p-3 w-full md:w-1/3 border rounded-lg shadow-sm focus:ring-blue-300"
         />
-        
-        {["niveau", "choix", "domaine"].map((filter) => (
+
+        {Object.keys(filters).map((filter) => (
           <select
             key={filter}
-            value={eval(`selected${filter.charAt(0).toUpperCase() + filter.slice(1)}`)}
-            onChange={(e) => eval(`setSelected${filter.charAt(0).toUpperCase() + filter.slice(1)}(e.target.value)`)}
+            value={filters[filter]}
+            onChange={(e) => handleFilterChange(filter, e.target.value)}
             className="p-3 border rounded-lg bg-white shadow-sm focus:ring-blue-300"
           >
             <option value="">Tous les {filter}s</option>
@@ -162,12 +167,12 @@ const ConcoursPage = () => {
 
       {/* Concours List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {concoursList.filter(filterConcours).length === 0 ? (
+        {filteredConcours.length === 0 ? (
           <p className="text-center text-lg text-gray-500 col-span-full">
             Aucun concours trouvé
           </p>
         ) : (
-          concoursList.filter(filterConcours).map((concours) => (
+          filteredConcours.map((concours) => (
             <div
               key={concours.id}
               className={`p-6 rounded-xl shadow-lg border-2 transition-all ${
@@ -189,7 +194,7 @@ const ConcoursPage = () => {
               </div>
               
               <button
-                onClick={() => handleShowConcours(concours.pdfUrl)}
+                onClick={() => handleConcoursClick(concours)}
                 disabled={!concours.isAvailable}
                 className={`mt-4 w-full px-5 py-2.5 text-lg font-semibold rounded-lg transition-all ${
                   concours.isAvailable
