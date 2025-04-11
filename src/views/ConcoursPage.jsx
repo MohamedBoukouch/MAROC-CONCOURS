@@ -3,9 +3,8 @@ import concoursList from "../data/concours.json";
 
 const ConcoursPage = () => {
   // Configuration from Vite environment variables
-  const isTestMode = false; // Set to false for production
   const AD_ZONE_ID = import.meta.env.VITE_AD_ZONE_ID;
-  const AD_DELAY = parseInt(import.meta.env.VITE_AD_DELAY, 10); // convert to number
+  const AD_DELAY = parseInt(import.meta.env.VITE_AD_DELAY) || 5000; // Default fallback
   const AD_SCRIPT_URL = import.meta.env.VITE_AD_SCRIPT_URL;
 
   // State
@@ -22,9 +21,11 @@ const ConcoursPage = () => {
 
   // Initialize ad script
   useEffect(() => {
-    if (!isTestMode) {
+    if (AD_SCRIPT_URL && AD_ZONE_ID) {
       const script = document.createElement("script");
-      script.src = AD_SCRIPT_URL;
+      script.src = AD_SCRIPT_URL.startsWith('//') 
+        ? `https:${AD_SCRIPT_URL}` 
+        : AD_SCRIPT_URL;
       script.setAttribute("data-zone", AD_ZONE_ID);
       script.async = true;
       script.setAttribute("data-cfasync", "false");
@@ -36,7 +37,7 @@ const ConcoursPage = () => {
         document.body.removeChild(script);
       };
     }
-  }, [isTestMode, AD_SCRIPT_URL, AD_ZONE_ID]);
+  }, [AD_SCRIPT_URL, AD_ZONE_ID]);
 
   // Handle ad countdown
   useEffect(() => {
@@ -54,10 +55,11 @@ const ConcoursPage = () => {
 
   const handleConcoursClick = (concours) => {
     // First open the PDF immediately
-    window.open(concours.pdfUrl, "_blank");
+    if (concours.pdfUrl) {
+      window.open(concours.pdfUrl, "_blank");
+    }
     
     if (visitedConcours.has(concours.id)) {
-      // If already visited, don't show ad
       return;
     }
 
@@ -69,7 +71,6 @@ const ConcoursPage = () => {
   };
 
   const handleAdRedirect = () => {
-    // Trigger the ad redirect function
     window._villtxg?.();
     setShowAdModal(false);
   };
@@ -86,7 +87,7 @@ const ConcoursPage = () => {
   const filteredConcours = concoursList.filter(concours => {
     const matchesSearch = searchQuery === "" ||
       Object.values(concours).some(val => 
-        String(val).toLowerCase().includes(searchQuery.toLowerCase())
+        val && String(val).toLowerCase().includes(searchQuery.toLowerCase())
       );
     
     const matchesFilters = Object.entries(filters).every(
@@ -103,11 +104,10 @@ const ConcoursPage = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
           <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
             <h2 className="text-2xl font-bold text-blue-600 mb-4">
-              {isTestMode ? "[TEST] " : ""}Publicité Sponsorisée
+              Publicité Sponsorisée
             </h2>
             <p className="text-gray-700 mb-4">
-              Merci d'avoir consulté le concours. Vous serez redirigé vers
-              notre sponsor dans {adCountdown} secondes...
+              Merci d'avoir consulté le concours. Vous serez redirigé vers notre sponsor dans {adCountdown} secondes...
             </p>
             <div className="flex justify-between mt-6">
               <button
@@ -133,11 +133,6 @@ const ConcoursPage = () => {
         <p className="text-gray-600 mt-2 text-lg">
           Trouvez les meilleures opportunités
         </p>
-        {isTestMode && (
-          <div className="mt-4 p-2 bg-yellow-100 text-yellow-800 rounded-md">
-            Mode Test Activé - Les pubs sont simulées
-          </div>
-        )}
       </div>
 
       {/* Search and Filters */}
@@ -158,7 +153,7 @@ const ConcoursPage = () => {
             className="p-3 border rounded-lg bg-white shadow-sm focus:ring-blue-300"
           >
             <option value="">Tous les {filter}s</option>
-            {[...new Set(concoursList.map(c => c[filter]))].map((val) => (
+            {[...new Set(concoursList.map(c => c[filter]).filter(Boolean))].map((val) => (
               <option key={val} value={val}>{val}</option>
             ))}
           </select>
@@ -182,13 +177,13 @@ const ConcoursPage = () => {
               }`}
             >
               <h2 className="font-semibold text-2xl text-blue-700">
-                {concours.title}
+                {concours.title || "Sans titre"}
               </h2>
               <div className="text-sm space-y-1 mt-2 text-gray-700">
                 {["date", "niveau", "choix", "domaine"].map((field) => (
                   <p key={field}>
                     {field.charAt(0).toUpperCase() + field.slice(1)}:{" "}
-                    <span className="font-semibold">{concours[field]}</span>
+                    <span className="font-semibold">{concours[field] || "Non spécifié"}</span>
                   </p>
                 ))}
               </div>
