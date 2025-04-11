@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AdComponent from "../ADS/GoogleAd"; // Import the AdComponent
+// import AdComponent from "../ADS/GoogleAd"; // Import the AdComponent
 import concoursList from "../data/concours.json";
 
 const ConcoursPage = () => {
@@ -7,7 +7,7 @@ const ConcoursPage = () => {
   const [selectedNiveau, setSelectedNiveau] = useState("");
   const [selectedChoix, setSelectedChoix] = useState("");
   const [selectedDomaine, setSelectedDomaine] = useState("");
-  const [showAd, setShowAd] = useState(false);
+  // const [showAd, setShowAd] = useState(false);
   const [pendingPdfUrl, setPendingPdfUrl] = useState(null);
 
   const filteredConcours = concoursList.filter((concours) => {
@@ -122,12 +122,12 @@ const ConcoursPage = () => {
         )}
       </div>
 
-      {showAd && (
+      {/* {showAd && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md">
           <div className="bg-white p-8 rounded-lg shadow-lg text-center w-80">
             <h2 className="text-2xl font-bold text-red-500">Publicité sponsorisée</h2>
             <p className="text-gray-700 mt-3">Cette publicité précède l'accès aux détails du concours.</p>
-            <AdComponent onAdClose={handleAdClose} /> {/* Show Ad Component */}
+            <AdComponent onAdClose={handleAdClose} /> 
             <button
               onClick={handleOpenPdf}
               className="mt-4 px-5 py-2.5 w-full bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all"
@@ -136,7 +136,7 @@ const ConcoursPage = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
