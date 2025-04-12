@@ -101,7 +101,7 @@ const ContactPage = () => {
           {/* <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-600 hover:text-blue-800">
             <FaFacebook />
           </a> */}
-          <a href="https://www.instagram.com/mohmadboukouch/" target="_blank" rel="noopener noreferrer" className="text-2xl text-pink-600 hover:text-pink-800">
+          <a href="https://www.instagram.com/maroconcours" target="_blank" rel="noopener noreferrer" className="text-2xl text-pink-600 hover:text-pink-800">
             <FaInstagram />
           </a>
           <a href="https://www.x.com/medbkch" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-400 hover:text-blue-600">
