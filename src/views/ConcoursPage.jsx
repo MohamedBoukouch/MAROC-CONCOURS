@@ -171,7 +171,7 @@ const ConcoursPage = () => {
           <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
             <h2 className="text-2xl font-bold text-blue-600 mb-4">Publicité Sponsorisée</h2>
             <p className="text-gray-700 mb-4">
-              Vous serez redirigé vers la publicité dans un nouvel onglet...
+            Cette publicité est un petit soutien pour nous. Merci de la regarder afin de contribuer à nos efforts !
             </p>
             <div className="flex justify-center gap-4 mt-6">
               <button
