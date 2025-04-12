@@ -2,148 +2,142 @@ import React, { useState, useEffect } from "react";
 import concoursList from "../data/concours.json";
 
 const ConcoursPage = () => {
-  // Configuration from Vite environment variables
-  const AD_ZONE_ID = import.meta.env.VITE_AD_ZONE_ID;
-  const AD_DELAY = parseInt(import.meta.env.VITE_AD_DELAY) || 5000;
-  const AD_SCRIPT_URL = import.meta.env.VITE_AD_SCRIPT_URL;
-
-  // State management
   const [searchQuery, setSearchQuery] = useState("");
-  const [filters, setFilters] = useState({ 
-    niveau: "", 
-    choix: "", 
-    domaine: "" 
-  });
-  const [currentConcours, setCurrentConcours] = useState(null);
-  const [clickCounts, setClickCounts] = useState({}); // Track click count for each concours
+  const [selectedNiveau, setSelectedNiveau] = useState("");
+  const [selectedChoix, setSelectedChoix] = useState("");
+  const [selectedDomaine, setSelectedDomaine] = useState("");
+  const [showAd, setShowAd] = useState(false);
+  const [pendingPdfUrl, setPendingPdfUrl] = useState(null);
 
-  // Initialize ad script (but now it will be used conditionally based on click)
+  // Inject ad script when needed
   useEffect(() => {
-    if (!AD_SCRIPT_URL || !AD_ZONE_ID) {
-      console.error("Missing ad configuration");
-      return;
+    if (showAd) {
+      const script = document.createElement("script");
+      script.src = "//pl26356678.profitableratecpm.com/ab/e0/9f/abe09fd533b4e041d41ecffbc30266f2.js";
+      script.async = true;
+      document.body.appendChild(script);
     }
+  }, [showAd]);
 
-    const script = document.createElement("script");
-    script.src = AD_SCRIPT_URL.startsWith('//') 
-      ? `https:${AD_SCRIPT_URL}` 
-      : AD_SCRIPT_URL;
-    script.setAttribute("data-zone", AD_ZONE_ID);
-    script.async = true;
-    script.setAttribute("data-cfasync", "false");
-    script.onerror = () => window._villtxg?.();
-    script.onload = () => window._vqwzz?.();
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [AD_SCRIPT_URL, AD_ZONE_ID]);
-
-  const handleConcoursClick = (concours) => {
-    if (!concours.isAvailable) return;
-
-    // Update click count for concours
-    setClickCounts(prev => {
-      const newCount = (prev[concours.id] || 0) + 1;
-      return { ...prev, [concours.id]: newCount };
-    });
-
-    // If clicked third time, show the content and redirect
-    if ((clickCounts[concours.id] || 0) >= 2) {
-      setCurrentConcours(concours);
-      // Redirect to the concours content
-      window.open(concours.pdfUrl, "_blank");
-    }
-  };
-
-  const handleFilterChange = (filterName, value) => {
-    setFilters(prev => ({ ...prev, [filterName]: value }));
-  };
-
-  // Filter concours based on search and filters
-  const filteredConcours = concoursList.filter(concours => {
-    const matchesSearch = searchQuery === "" ||
-      Object.values(concours).some(val => 
-        val && String(val).toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    
-    const matchesFilters = Object.entries(filters).every(
-      ([key, value]) => value === "" || concours[key] === value
+  const filteredConcours = concoursList.filter((concours) => {
+    return (
+      (searchQuery === "" ||
+        concours.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        concours.date.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        concours.niveau.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        concours.choix.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        concours.domaine.toLowerCase().includes(searchQuery.toLowerCase())) &&
+      (selectedNiveau === "" || concours.niveau === selectedNiveau) &&
+      (selectedChoix === "" || concours.choix === selectedChoix) &&
+      (selectedDomaine === "" || concours.domaine === selectedDomaine)
     );
-
-    return matchesSearch && matchesFilters;
   });
+
+  const handleVoirDetails = (url) => {
+    setPendingPdfUrl(url);
+    setShowAd(true);
+
+    // Open ad first
+    window.open("https://pl26356678.profitableratecpm.com/ab/e0/9f/abe09fd533b4e041d41ecffbc30266f2", "_blank");
+  };
+
+  const handleOpenPdf = () => {
+    if (pendingPdfUrl) {
+      window.open(pendingPdfUrl, "_blank");
+      setShowAd(false);
+      setPendingPdfUrl(null);
+    }
+  };
+
+  const handleAdClose = () => {
+    setShowAd(false);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      {/* Page Header */}
       <div className="text-center mb-6">
         <h1 className="text-4xl font-extrabold text-blue-700">Concours</h1>
         <p className="text-gray-600 mt-2 text-lg">
-          Trouvez les meilleures opportunités
+          Trouvez les meilleures opportunités pour votre avenir
         </p>
       </div>
 
-      {/* Search and Filters Section */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
         <input
           type="text"
-          placeholder="Rechercher..."
+          placeholder="Rechercher un concours..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="p-3 w-full md:w-1/3 border rounded-lg shadow-sm focus:ring-blue-300"
+          className="p-3 w-full md:w-1/3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
         />
-
-        {Object.keys(filters).map((filter) => (
-          <select
-            key={filter}
-            value={filters[filter]}
-            onChange={(e) => handleFilterChange(filter, e.target.value)}
-            className="p-3 border rounded-lg bg-white shadow-sm focus:ring-blue-300"
-          >
-            <option value="">Tous les {filter}s</option>
-            {[...new Set(concoursList.map(c => c[filter]).filter(Boolean))].map((val) => (
-              <option key={val} value={val}>{val}</option>
-            ))}
-          </select>
-        ))}
+        <select
+          onChange={(e) => setSelectedNiveau(e.target.value)}
+          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+        >
+          <option value="">Tous les niveaux</option>
+          <option value="bac+2">Bac +2</option>
+          <option value="bac+3">Bac +3</option>
+        </select>
+        <select
+          onChange={(e) => setSelectedChoix(e.target.value)}
+          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+        >
+          <option value="">Tous les diplômes</option>
+          <option value="licence">Licence</option>
+          <option value="cycle">Cycle</option>
+          <option value="master">Master</option>
+        </select>
+        <select
+          onChange={(e) => setSelectedDomaine(e.target.value)}
+          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+        >
+          <option value="">Tous les domaines</option>
+          <option value="informatique">Informatique</option>
+          <option value="industrielle">Industrielle</option>
+          <option value="economie">Économie</option>
+        </select>
       </div>
 
-      {/* Concours List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredConcours.length === 0 ? (
-          <p className="text-center text-lg text-gray-500 col-span-full py-10">
+          <p className="text-center text-lg text-gray-500">
             Aucun concours trouvé
           </p>
         ) : (
           filteredConcours.map((concours) => (
             <div
               key={concours.id}
-              className={`p-6 rounded-xl shadow-lg border-2 transition-all ${concours.isAvailable
-                ? "bg-green-50 border-green-500 hover:shadow-xl"
-                : "bg-gray-100 border-gray-400"
+              className={`p-6 rounded-xl shadow-lg border-2 transition-all duration-300 ${
+                concours.isAvailable
+                  ? "bg-green-50 border-green-500 hover:shadow-xl"
+                  : "bg-gray-100 border-gray-400"
               }`}
             >
-              <h2 className="font-semibold text-2xl text-blue-700 mb-2">
-                {concours.title || "Sans titre"}
+              <h2 className="font-semibold text-2xl text-blue-700">
+                {concours.title}
               </h2>
-              <div className="text-sm space-y-1 text-gray-700">
-                {["date", "niveau", "choix", "domaine"].map((field) => (
-                  <p key={field}>
-                    {field.charAt(0).toUpperCase() + field.slice(1)}:{" "}
-                    <span className="font-semibold">{concours[field] || "Non spécifié"}</span>
-                  </p>
-                ))}
-              </div>
-              
+              <p className="text-sm text-gray-500 mt-1">{concours.date}</p>
+              <p className="text-sm text-gray-700">
+                Niveau :{" "}
+                <span className="font-semibold">{concours.niveau}</span>
+              </p>
+              <p className="text-sm text-gray-700">
+                Diplôme :{" "}
+                <span className="font-semibold">{concours.choix}</span>
+              </p>
+              <p className="text-sm text-gray-700">
+                Domaine :{" "}
+                <span className="font-semibold">{concours.domaine}</span>
+              </p>
+
               <button
-                onClick={() => handleConcoursClick(concours)}
-                disabled={!concours.isAvailable}
-                className={`mt-4 w-full px-5 py-2.5 text-lg font-semibold rounded-lg transition-all ${concours.isAvailable
-                  ? "bg-green-500 text-white hover:bg-green-600"
-                  : "bg-gray-400 text-gray-200 cursor-not-allowed"
+                onClick={() => handleVoirDetails(concours.pdfUrl)}
+                className={`mt-4 w-full px-5 py-2.5 text-lg font-semibold rounded-lg transition-all duration-200 ${
+                  concours.isAvailable
+                    ? "bg-green-500 text-white hover:bg-green-600"
+                    : "bg-gray-400 text-gray-200 cursor-not-allowed"
                 }`}
+                disabled={!concours.isAvailable}
               >
                 {concours.isAvailable ? "Voir les détails" : "Non disponible"}
               </button>
@@ -151,6 +145,53 @@ const ConcoursPage = () => {
           ))
         )}
       </div>
+
+      {showAd && (
+        // <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md z-50">
+        //   <div className="bg-white p-8 rounded-lg shadow-lg text-center w-80">
+        //     <h2 className="text-2xl font-bold text-red-500">Publicité</h2>
+        //     <p className="text-gray-700 mt-3">
+        //       Veuillez attendre un moment. Vous serez redirigé vers le contenu.
+        //     </p>
+        //     <button
+        //       onClick={handleOpenPdf}
+        //       className="mt-4 px-5 py-2.5 w-full bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all"
+        //     >
+        //       Continuer vers le concours
+        //     </button>
+        //     <button
+        //       onClick={handleAdClose}
+        //       className="mt-2 px-5 py-2 w-full text-sm text-gray-500 underline"
+        //     >
+        //       Annuler
+        //     </button>
+        //   </div>
+        // </div>
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
+            <h2 className="text-2xl font-bold text-blue-600 mb-4">Publicité Sponsorisée</h2>
+            <p className="text-gray-700 mb-4">
+              Vous serez redirigé vers la publicité dans un nouvel onglet...
+            </p>
+            <div className="flex justify-center gap-4 mt-6">
+              <button
+                onClick={handleOpenPdf}
+                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={handleOpenPdf}
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+              >
+                Continuer
+              </button>
+            </div>
+          </div>
+        </div>
+
+        
+      )}
     </div>
   );
 };
