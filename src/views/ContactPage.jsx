@@ -119,7 +119,7 @@ const ContactPage = () => {
         <p className="text-lg text-gray-700">
           If you prefer, you can also email us directly at
           <a href="mailto:your-email@example.com" className="text-blue-600 font-semibold hover:underline ml-1">
-            <AiOutlineMail className="inline-block mb-1" /> boukouchmohamed7@gmail.com.com
+            <AiOutlineMail className="inline-block mb-1" />concoursmaroc7@gmail.com
           </a>
         </p>
       </div>

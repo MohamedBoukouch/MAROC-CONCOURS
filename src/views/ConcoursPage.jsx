@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FiUpload, FiX, FiInfo } from "react-icons/fi";
 import concoursList from "../data/concours.json";
 
 const ConcoursPage = () => {
@@ -8,6 +9,7 @@ const ConcoursPage = () => {
   const [selectedDomaine, setSelectedDomaine] = useState("");
   const [showAd, setShowAd] = useState(false);
   const [pendingPdfUrl, setPendingPdfUrl] = useState(null);
+  const [showUploadModal, setShowUploadModal] = useState(false);
 
   // Inject popup ad script when needed
   useEffect(() => {
@@ -77,70 +79,92 @@ const ConcoursPage = () => {
     setSelectedChoix("");
   };
 
+  const handleUploadClick = () => {
+    setShowUploadModal(true);
+  };
+
+  const handleContinueToForm = () => {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSevJ0tO8TLxDEu6V808cDJXg3aXFBE2b_Srf7QIVXec0gg4vg/viewform?usp=sharing", "_blank");
+    setShowUploadModal(false);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="text-center mb-6">
-        
-      {/* Tera Native Banner Ad */}
-      {/* <div id="ad-container" className="my-6 text-center">
-        <div id="container-68ecf70c6ea397a9db59041e78d94972"></div>
-      </div> */}
-        
         <h1 className="text-4xl font-extrabold text-blue-700">Concours</h1>
         <p className="text-gray-600 mt-2 text-lg">
           Trouvez les meilleures opportunités pour votre avenir
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
-        <input
-          type="text"
-          placeholder="Rechercher un concours..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="p-3 w-full md:w-1/3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
-        />
-        <select
-          value={selectedNiveau}
-          onChange={handleNiveauChange}
-          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
-        >
-          <option value="">Tous les niveaux</option>
-          <option value="Bac+2">Bac +2</option>
-          <option value="Bac+3">Bac +3</option>
-        </select>
-        <select
-          value={selectedChoix}
-          onChange={handleChoixChange}
-          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
-        >
-          <option value="">Tous les diplômes</option>
-          <option value="licence">Licence</option>
-          <option value="Cycle">Cycle</option>
-          <option value="Master">Master</option>
-        </select>
-        <select
-          value={selectedDomaine}
-          onChange={handleDomaineChange}
-          className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
-        >
-          <option value="">Tous les domaines</option>
-          <option value="informatique">Informatique</option>
-          <option value="industrielle">Industrielle</option>
-          <option value="economie">Économie</option>
-          <option value="informatique & industriel">informatique & industriel</option>
-          <option value="Génie électrique">Génie électrique</option>
-          <option value="Génie électrique & Génie mécanique">Génie électrique & Génie mécanique</option>
-          <option value="Informatique Industrielle & Systèmes Electriques & Mécanique">
-            Informatique Industrielle & Systèmes Electriques & Mécanique
-          </option>
-        </select>
+      {/* Combined search/filters/upload row with responsive design */}
+      <div className="flex flex-col md:flex-row items-stretch gap-3 mb-8">
+        {/* Search input - takes remaining space */}
+        <div className="flex-1">
+          <input
+            type="text"
+            placeholder="Rechercher un concours..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 h-full"
+          />
+        </div>
+        
+        {/* Filters - flex-wrap for mobile */}
+        <div className="flex flex-wrap gap-3 md:flex-nowrap">
+          <select
+            value={selectedNiveau}
+            onChange={handleNiveauChange}
+            className="flex-1 min-w-[150px] p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+          >
+            <option value="">Tous niveaux</option>
+            <option value="Bac+2">Bac +2</option>
+            <option value="Bac+3">Bac +3</option>
+          </select>
+          
+          <select
+            value={selectedChoix}
+            onChange={handleChoixChange}
+            className="flex-1 min-w-[150px] p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+          >
+            <option value="">Tous diplômes</option>
+            <option value="licence">Licence</option>
+            <option value="Cycle">Cycle</option>
+            <option value="Master">Master</option>
+          </select>
+          
+          <select
+            value={selectedDomaine}
+            onChange={handleDomaineChange}
+            className="flex-1 min-w-[150px] p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
+          >
+            <option value="">Tous domaines</option>
+            <option value="informatique">Informatique</option>
+            <option value="industrielle">Industrielle</option>
+            <option value="economie">Économie</option>
+            <option value="informatique & industriel">Info & industriel</option>
+            <option value="Génie électrique">Génie électrique</option>
+            <option value="Génie électrique & Génie mécanique">Génie électrique/mécanique</option>
+            <option value="Informatique Industrielle & Systèmes Electriques & Mécanique">
+              Info Industrielle & Systèmes
+            </option>
+          </select>
+          
+          {/* Upload button - now inline with other elements */}
+          <button
+            onClick={handleUploadClick}
+            className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-blue-500 text-white px-4 py-3 rounded-lg transition-all shadow-md whitespace-nowrap min-w-[180px]"
+          >
+            <FiUpload className="text-lg" />
+            <span className="hidden sm:inline">Proposer concours</span>
+            <span className="sm:hidden">Upload</span>
+          </button>
+        </div>
       </div>
-
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredConcours.length === 0 ? (
-          <p className="text-center text-lg text-gray-500">
+          <p className="text-center text-lg text-gray-500 col-span-full">
             Aucun concours trouvé
           </p>
         ) : (
@@ -158,16 +182,13 @@ const ConcoursPage = () => {
               </h2>
               <p className="text-sm text-gray-500 mt-1">{concours.date}</p>
               <p className="text-sm text-gray-700">
-                Niveau :{" "}
-                <span className="font-semibold">{concours.niveau}</span>
+                Niveau : <span className="font-semibold">{concours.niveau}</span>
               </p>
               <p className="text-sm text-gray-700">
-                Diplôme :{" "}
-                <span className="font-semibold">{concours.choix}</span>
+                Diplôme : <span className="font-semibold">{concours.choix}</span>
               </p>
               <p className="text-sm text-gray-700">
-                Domaine :{" "}
-                <span className="font-semibold">{concours.domaine}</span>
+                Domaine : <span className="font-semibold">{concours.domaine}</span>
               </p>
 
               <button
@@ -186,6 +207,64 @@ const ConcoursPage = () => {
         )}
       </div>
 
+      {/* Professional Upload Modal */}
+      {showUploadModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden">
+            <div className="bg-blue-600 p-4 flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <FiInfo className="text-white text-xl" />
+                <h3 className="text-white font-semibold text-lg">Partagez un concours</h3>
+              </div>
+              <button 
+                onClick={() => setShowUploadModal(false)}
+                className="text-white hover:text-blue-100"
+              >
+                <FiX className="text-xl" />
+              </button>
+            </div>
+            
+            <div className="p-6">
+              <div className="mb-4">
+                <h4 className="font-medium text-gray-800 mb-2">Comment contribuer ?</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Aidez-nous à enrichir notre base de données en partageant des informations sur des concours que vous connaissez.
+                </p>
+              </div>
+              
+              <div className="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
+                <h4 className="font-medium text-blue-800 mb-2 flex items-center gap-2">
+                  <FiInfo className="text-blue-600" />
+                  Informations requises
+                </h4>
+                <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
+                  <li>Spécialité du concours</li>
+                  <li>Année Scolaire de concours</li>
+                  <li>Concours d’accès au  cycle?</li>
+                  <li>Documents</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="bg-gray-50 px-6 py-4 flex justify-end gap-3 border-t border-gray-200">
+              <button
+                onClick={() => setShowUploadModal(false)}
+                className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={handleContinueToForm}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition flex items-center gap-2"
+              >
+                Accéder au formulaire
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Ad Modal */}
       {showAd && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
           <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
