@@ -9,7 +9,7 @@ const ConcoursPage = () => {
   const [showAd, setShowAd] = useState(false);
   const [pendingPdfUrl, setPendingPdfUrl] = useState(null);
 
-  // Inject ad script when needed
+  // Inject popup ad script when needed
   useEffect(() => {
     if (showAd) {
       const script = document.createElement("script");
@@ -18,6 +18,14 @@ const ConcoursPage = () => {
       document.body.appendChild(script);
     }
   }, [showAd]);
+
+  // Inject Tera native banner ad on page load
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//pl26356691.profitableratecpm.com/68ecf70c6ea397a9db59041e78d94972/invoke.js";
+    script.async = true;
+    document.getElementById("ad-container")?.appendChild(script);
+  }, []);
 
   const filteredConcours = concoursList.filter((concours) => {
     return (
@@ -36,8 +44,6 @@ const ConcoursPage = () => {
   const handleVoirDetails = (url) => {
     setPendingPdfUrl(url);
     setShowAd(true);
-
-    // Open ad first
     window.open("https://pl26356678.profitableratecpm.com/ab/e0/9f/abe09fd533b4e041d41ecffbc30266f2", "_blank");
   };
 
@@ -53,9 +59,33 @@ const ConcoursPage = () => {
     setShowAd(false);
   };
 
+  const handleNiveauChange = (e) => {
+    setSelectedNiveau(e.target.value);
+    setSelectedChoix("");
+    setSelectedDomaine("");
+  };
+
+  const handleChoixChange = (e) => {
+    setSelectedChoix(e.target.value);
+    setSelectedNiveau("");
+    setSelectedDomaine("");
+  };
+
+  const handleDomaineChange = (e) => {
+    setSelectedDomaine(e.target.value);
+    setSelectedNiveau("");
+    setSelectedChoix("");
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="text-center mb-6">
+        
+      {/* Tera Native Banner Ad */}
+      {/* <div id="ad-container" className="my-6 text-center">
+        <div id="container-68ecf70c6ea397a9db59041e78d94972"></div>
+      </div> */}
+        
         <h1 className="text-4xl font-extrabold text-blue-700">Concours</h1>
         <p className="text-gray-600 mt-2 text-lg">
           Trouvez les meilleures opportunités pour votre avenir
@@ -71,32 +101,42 @@ const ConcoursPage = () => {
           className="p-3 w-full md:w-1/3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300"
         />
         <select
-          onChange={(e) => setSelectedNiveau(e.target.value)}
+          value={selectedNiveau}
+          onChange={handleNiveauChange}
           className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
         >
           <option value="">Tous les niveaux</option>
-          <option value="bac+2">Bac +2</option>
-          <option value="bac+3">Bac +3</option>
+          <option value="Bac+2">Bac +2</option>
+          <option value="Bac+3">Bac +3</option>
         </select>
         <select
-          onChange={(e) => setSelectedChoix(e.target.value)}
+          value={selectedChoix}
+          onChange={handleChoixChange}
           className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
         >
           <option value="">Tous les diplômes</option>
           <option value="licence">Licence</option>
-          <option value="cycle">Cycle</option>
-          <option value="master">Master</option>
+          <option value="Cycle">Cycle</option>
+          <option value="Master">Master</option>
         </select>
         <select
-          onChange={(e) => setSelectedDomaine(e.target.value)}
+          value={selectedDomaine}
+          onChange={handleDomaineChange}
           className="p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
         >
           <option value="">Tous les domaines</option>
           <option value="informatique">Informatique</option>
           <option value="industrielle">Industrielle</option>
           <option value="economie">Économie</option>
+          <option value="informatique & industriel">informatique & industriel</option>
+          <option value="Génie électrique">Génie électrique</option>
+          <option value="Génie électrique & Génie mécanique">Génie électrique & Génie mécanique</option>
+          <option value="Informatique Industrielle & Systèmes Electriques & Mécanique">
+            Informatique Industrielle & Systèmes Electriques & Mécanique
+          </option>
         </select>
       </div>
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredConcours.length === 0 ? (
@@ -147,35 +187,18 @@ const ConcoursPage = () => {
       </div>
 
       {showAd && (
-        // <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md z-50">
-        //   <div className="bg-white p-8 rounded-lg shadow-lg text-center w-80">
-        //     <h2 className="text-2xl font-bold text-red-500">Publicité</h2>
-        //     <p className="text-gray-700 mt-3">
-        //       Veuillez attendre un moment. Vous serez redirigé vers le contenu.
-        //     </p>
-        //     <button
-        //       onClick={handleOpenPdf}
-        //       className="mt-4 px-5 py-2.5 w-full bg-blue-500 text-white text-lg font-semibold rounded-lg hover:bg-blue-600 transition-all"
-        //     >
-        //       Continuer vers le concours
-        //     </button>
-        //     <button
-        //       onClick={handleAdClose}
-        //       className="mt-2 px-5 py-2 w-full text-sm text-gray-500 underline"
-        //     >
-        //       Annuler
-        //     </button>
-        //   </div>
-        // </div>
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
           <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
-            <h2 className="text-2xl font-bold text-blue-600 mb-4">Publicité Sponsorisée</h2>
+            <h2 className="text-2xl font-bold text-blue-600 mb-4">
+              Publicité Sponsorisée
+            </h2>
             <p className="text-gray-700 mb-4">
-            Cette publicité est un petit soutien pour nous. Merci de la regarder afin de contribuer à nos efforts !
+              Cette publicité est un petit soutien pour nous. Merci de la
+              regarder afin de contribuer à nos efforts !
             </p>
             <div className="flex justify-center gap-4 mt-6">
               <button
-                onClick={handleOpenPdf}
+                onClick={handleAdClose}
                 className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
               >
                 Annuler
@@ -189,8 +212,6 @@ const ConcoursPage = () => {
             </div>
           </div>
         </div>
-
-        
       )}
     </div>
   );

@@ -127,7 +127,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     
     {
@@ -368,7 +368,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 38,
@@ -378,7 +378,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 39,
@@ -388,7 +388,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 40,
@@ -408,7 +408,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 42,
@@ -418,7 +418,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 43,
@@ -428,7 +428,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 44,
@@ -438,7 +438,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 45,
@@ -448,7 +448,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 46,
@@ -458,7 +458,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "informatique & Industrielle"
     },
     {
       "id": 47,
@@ -558,7 +558,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique  "
+      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
     },
     {
       "id": 57,
@@ -568,7 +568,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique  "
+      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
     },
     {
       "id": 58,
@@ -578,7 +578,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique  "
+      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
     },
     {
       "id": 59,
@@ -588,7 +588,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique  "
+      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
     },
     {
       "id": 60,
@@ -598,7 +598,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique  "
+      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
     },
     {
       "id": 61,
@@ -608,7 +608,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique  "
+      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
     },
     {
       "id": 62,
