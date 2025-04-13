@@ -7,6 +7,7 @@ import AbouUsPage from "./views/AbouUsPage";
 import FaqPage from "./views/FaqPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import PrivacyPolicy from "./views/PrivacyPolicy";
 import './style/App.css';
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AbouUsPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
           </Routes>
         </main>
         <Footer />
