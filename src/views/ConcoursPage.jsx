@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FiUpload, FiX, FiInfo } from "react-icons/fi";
 import concoursList from "../data/concours.json";
 
@@ -7,27 +7,7 @@ const ConcoursPage = () => {
   const [selectedNiveau, setSelectedNiveau] = useState("");
   const [selectedChoix, setSelectedChoix] = useState("");
   const [selectedDomaine, setSelectedDomaine] = useState("");
-  const [showAd, setShowAd] = useState(false);
-  const [pendingPdfUrl, setPendingPdfUrl] = useState(null);
   const [showUploadModal, setShowUploadModal] = useState(false);
-
-  // Inject popup ad script when needed
-  useEffect(() => {
-    if (showAd) {
-      const script = document.createElement("script");
-      script.src = "//pl26356678.profitableratecpm.com/ab/e0/9f/abe09fd533b4e041d41ecffbc30266f2.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, [showAd]);
-
-  // Inject Tera native banner ad on page load
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "//pl26356691.profitableratecpm.com/68ecf70c6ea397a9db59041e78d94972/invoke.js";
-    script.async = true;
-    document.getElementById("ad-container")?.appendChild(script);
-  }, []);
 
   const filteredConcours = concoursList.filter((concours) => {
     return (
@@ -44,21 +24,7 @@ const ConcoursPage = () => {
   });
 
   const handleVoirDetails = (url) => {
-    setPendingPdfUrl(url);
-    setShowAd(true);
-    window.open("https://pl26356678.profitableratecpm.com/ab/e0/9f/abe09fd533b4e041d41ecffbc30266f2", "_blank");
-  };
-
-  const handleOpenPdf = () => {
-    if (pendingPdfUrl) {
-      window.open(pendingPdfUrl, "_blank");
-      setShowAd(false);
-      setPendingPdfUrl(null);
-    }
-  };
-
-  const handleAdClose = () => {
-    setShowAd(false);
+    window.open(url, "_blank");
   };
 
   const handleNiveauChange = (e) => {
@@ -97,9 +63,9 @@ const ConcoursPage = () => {
         </p>
       </div>
 
-      {/* Combined search/filters/upload row with responsive design */}
+      {/* Combined search/filters/upload row */}
       <div className="flex flex-col md:flex-row items-stretch gap-3 mb-8">
-        {/* Search input - takes remaining space */}
+        {/* Search input */}
         <div className="flex-1">
           <input
             type="text"
@@ -110,7 +76,7 @@ const ConcoursPage = () => {
           />
         </div>
         
-        {/* Filters - flex-wrap for mobile */}
+        {/* Filters */}
         <div className="flex flex-wrap gap-3 md:flex-nowrap">
           <select
             value={selectedNiveau}
@@ -150,10 +116,10 @@ const ConcoursPage = () => {
             </option>
           </select>
           
-          {/* Upload button - now inline with other elements */}
+          {/* Upload button */}
           <button
             onClick={handleUploadClick}
-            className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-blue-500 text-white px-4 py-3 rounded-lg transition-all shadow-md whitespace-nowrap min-w-[180px]"
+            className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg transition-all shadow-md whitespace-nowrap min-w-[180px]"
           >
             <FiUpload className="text-lg" />
             <span className="hidden sm:inline">Proposer concours</span>
@@ -162,6 +128,7 @@ const ConcoursPage = () => {
         </div>
       </div>
 
+      {/* Concours Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredConcours.length === 0 ? (
           <p className="text-center text-lg text-gray-500 col-span-full">
@@ -207,7 +174,7 @@ const ConcoursPage = () => {
         )}
       </div>
 
-      {/* Professional Upload Modal */}
+      {/* Upload Modal */}
       {showUploadModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden">
@@ -240,7 +207,7 @@ const ConcoursPage = () => {
                 <ul className="text-gray-700 text-sm list-disc pl-5 space-y-1">
                   <li>Spécialité du concours</li>
                   <li>Année Scolaire de concours</li>
-                  <li>Concours d’accès au  cycle?</li>
+                  <li>Concours d'accès au cycle?</li>
                   <li>Documents</li>
                 </ul>
               </div>
@@ -258,35 +225,6 @@ const ConcoursPage = () => {
                 className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition flex items-center gap-2"
               >
                 Accéder au formulaire
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Ad Modal */}
-      {showAd && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
-            <h2 className="text-2xl font-bold text-blue-600 mb-4">
-              Publicité Sponsorisée
-            </h2>
-            <p className="text-gray-700 mb-4">
-              Cette publicité est un petit soutien pour nous. Merci de la
-              regarder afin de contribuer à nos efforts !
-            </p>
-            <div className="flex justify-center gap-4 mt-6">
-              <button
-                onClick={handleAdClose}
-                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition"
-              >
-                Annuler
-              </button>
-              <button
-                onClick={handleOpenPdf}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
-              >
-                Continuer
               </button>
             </div>
           </div>
