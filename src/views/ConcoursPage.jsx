@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FiUpload, FiX, FiInfo } from "react-icons/fi";
 import concoursList from "../data/concours.json";
 
@@ -8,41 +8,49 @@ const ConcoursPage = () => {
   const [selectedChoix, setSelectedChoix] = useState("");
   const [selectedDomaine, setSelectedDomaine] = useState("");
   const [showUploadModal, setShowUploadModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading data
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const filteredConcours = concoursList.filter((concours) => {
-    return (
-      (searchQuery === "" ||
-        concours.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        concours.date.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        concours.niveau.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        concours.choix.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        concours.domaine.toLowerCase().includes(searchQuery.toLowerCase())) &&
+    const matchesSearch = searchQuery === "" ||
+      Object.values(concours).some(
+        value => value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      
+    const matchesFilters = 
       (selectedNiveau === "" || concours.niveau === selectedNiveau) &&
       (selectedChoix === "" || concours.choix === selectedChoix) &&
-      (selectedDomaine === "" || concours.domaine === selectedDomaine)
-    );
+      (selectedDomaine === "" || concours.domaine === selectedDomaine);
+
+    return matchesSearch && matchesFilters;
   });
 
   const handleVoirDetails = (url) => {
-    window.open(url, "_blank");
+    if (url) window.open(url, "_blank");
   };
 
-  const handleNiveauChange = (e) => {
-    setSelectedNiveau(e.target.value);
-    setSelectedChoix("");
-    setSelectedDomaine("");
-  };
-
-  const handleChoixChange = (e) => {
-    setSelectedChoix(e.target.value);
-    setSelectedNiveau("");
-    setSelectedDomaine("");
-  };
-
-  const handleDomaineChange = (e) => {
-    setSelectedDomaine(e.target.value);
-    setSelectedNiveau("");
-    setSelectedChoix("");
+  const handleFilterChange = (setter) => (e) => {
+    setter(e.target.value);
+    // Reset other filters when one is selected
+    if (e.target.value) {
+      if (setter === setSelectedNiveau) {
+        setSelectedChoix("");
+        setSelectedDomaine("");
+      } else if (setter === setSelectedChoix) {
+        setSelectedNiveau("");
+        setSelectedDomaine("");
+      } else {
+        setSelectedNiveau("");
+        setSelectedChoix("");
+      }
+    }
   };
 
   const handleUploadClick = () => {
@@ -54,152 +62,174 @@ const ConcoursPage = () => {
     setShowUploadModal(false);
   };
 
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="text-center mb-6">
-        <h1 className="text-4xl font-extrabold text-blue-700">Concours</h1>
-        <p className="text-gray-600 mt-2 text-lg">
-          Trouvez les meilleures opportunités pour votre avenir
-        </p>
-      </div>
-
-      {/* Combined search/filters/upload row */}
-      <div className="flex flex-col md:flex-row items-stretch gap-3 mb-8">
-        {/* Search input */}
-        <div className="flex-1">
-          <input
-            type="text"
-            placeholder="Rechercher un concours..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-300 h-full"
-          />
-        </div>
-        
-        {/* Filters */}
-        <div className="flex flex-wrap gap-3 md:flex-nowrap">
-          <select
-            value={selectedNiveau}
-            onChange={handleNiveauChange}
-            className="flex-1 min-w-[150px] p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
-          >
-            <option value="">Tous niveaux</option>
-            <option value="Bac+2">Bac +2</option>
-            <option value="Bac+3">Bac +3</option>
-          </select>
-          
-          <select
-            value={selectedChoix}
-            onChange={handleChoixChange}
-            className="flex-1 min-w-[150px] p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
-          >
-            <option value="">Tous diplômes</option>
-            <option value="licence">Licence</option>
-            <option value="Cycle">Cycle</option>
-            <option value="Master">Master</option>
-          </select>
-          
-          <select
-            value={selectedDomaine}
-            onChange={handleDomaineChange}
-            className="flex-1 min-w-[150px] p-3 border rounded-lg bg-white shadow-sm focus:ring focus:ring-blue-300"
-          >
-            <option value="">Tous domaines</option>
-            <option value="informatique">Informatique</option>
-            <option value="industrielle">Industrielle</option>
-            <option value="economie">Économie</option>
-            <option value="informatique & industriel">Info & industriel</option>
-            <option value="Génie électrique">Génie électrique</option>
-            <option value="Génie électrique & Génie mécanique">Génie électrique/mécanique</option>
-            <option value="Informatique Industrielle & Systèmes Electriques & Mécanique">
-              Info Industrielle & Systèmes
-            </option>
-          </select>
-          
-          {/* Upload button */}
-          <button
-            onClick={handleUploadClick}
-            className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg transition-all shadow-md whitespace-nowrap min-w-[180px]"
-          >
-            <FiUpload className="text-lg" />
-            <span className="hidden sm:inline">Proposer concours</span>
-            <span className="sm:hidden">Upload</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Concours Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredConcours.length === 0 ? (
-          <p className="text-center text-lg text-gray-500 col-span-full">
-            Aucun concours trouvé
+    <div className="min-h-screen bg-gray-50 p-4 md:p-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-6">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-blue-700">Concours</h1>
+          <p className="text-gray-600 mt-2 text-base md:text-lg">
+            Trouvez les meilleures opportunités pour votre avenir
           </p>
-        ) : (
-          filteredConcours.map((concours) => (
-            <div
-              key={concours.id}
-              className={`p-6 rounded-xl shadow-lg border-2 transition-all duration-300 ${
-                concours.isAvailable
-                  ? "bg-green-50 border-green-500 hover:shadow-xl"
-                  : "bg-gray-100 border-gray-400"
-              }`}
-            >
-              <h2 className="font-semibold text-2xl text-blue-700">
-                {concours.title}
-              </h2>
-              <p className="text-sm text-gray-500 mt-1">{concours.date}</p>
-              <p className="text-sm text-gray-700">
-                Niveau : <span className="font-semibold">{concours.niveau}</span>
-              </p>
-              <p className="text-sm text-gray-700">
-                Diplôme : <span className="font-semibold">{concours.choix}</span>
-              </p>
-              <p className="text-sm text-gray-700">
-                Domaine : <span className="font-semibold">{concours.domaine}</span>
-              </p>
+        </div>
 
-              <button
-                onClick={() => handleVoirDetails(concours.pdfUrl)}
-                className={`mt-4 w-full px-5 py-2.5 text-lg font-semibold rounded-lg transition-all duration-200 ${
-                  concours.isAvailable
-                    ? "bg-green-500 text-white hover:bg-green-600"
-                    : "bg-gray-400 text-gray-200 cursor-not-allowed"
-                }`}
-                disabled={!concours.isAvailable}
+        {/* Search and Filters */}
+        <div className="flex flex-col md:flex-row gap-3 mb-8">
+          <div className="flex-1">
+            <input
+              type="text"
+              placeholder="Rechercher un concours..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none transition"
+            />
+          </div>
+          
+          <div className="flex flex-wrap gap-3 md:flex-nowrap">
+            <select
+              value={selectedNiveau}
+              onChange={handleFilterChange(setSelectedNiveau)}
+              className="flex-1 min-w-[120px] p-3 border rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none"
+            >
+              <option value="">Tous niveaux</option>
+              <option value="Bac+2">Bac +2</option>
+              <option value="Bac+3">Bac +3</option>
+            </select>
+            
+            <select
+              value={selectedChoix}
+              onChange={handleFilterChange(setSelectedChoix)}
+              className="flex-1 min-w-[120px] p-3 border rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none"
+            >
+              <option value="">Tous diplômes</option>
+              <option value="licence">Licence</option>
+              <option value="Cycle">Cycle</option>
+              <option value="Master">Master</option>
+            </select>
+            
+            <select
+              value={selectedDomaine}
+              onChange={handleFilterChange(setSelectedDomaine)}
+              className="flex-1 min-w-[120px] p-3 border rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none"
+            >
+              <option value="">Tous domaines</option>
+              <option value="informatique">Informatique</option>
+              <option value="industrielle">Industrielle</option>
+              <option value="economie">Économie</option>
+              <option value="informatique & industriel">Info & industriel</option>
+              <option value="Génie électrique">Génie électrique</option>
+              <option value="Génie électrique & Génie mécanique">Génie électrique/mécanique</option>
+              <option value="Informatique Industrielle & Systèmes Electriques & Mécanique">
+                Info Industrielle & Systèmes
+              </option>
+            </select>
+            
+            <button
+              onClick={handleUploadClick}
+              className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg transition-all shadow-md whitespace-nowrap min-w-[150px]"
+            >
+              <FiUpload className="text-lg" />
+              <span className="hidden sm:inline">Proposer concours</span>
+              <span className="sm:hidden">Upload</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Concours Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {filteredConcours.length === 0 ? (
+            <div className="col-span-full text-center py-10">
+              <p className="text-lg text-gray-500">Aucun concours trouvé</p>
+              <button 
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedNiveau("");
+                  setSelectedChoix("");
+                  setSelectedDomaine("");
+                }}
+                className="mt-4 text-blue-600 hover:underline"
               >
-                {concours.isAvailable ? "Voir les détails" : "Non disponible"}
+                Réinitialiser les filtres
               </button>
             </div>
-          ))
-        )}
+          ) : (
+            filteredConcours.map((concours) => (
+              <div
+                key={concours.id}
+                className={`p-5 rounded-xl shadow-md border transition-all duration-300 hover:shadow-lg ${
+                  concours.isAvailable
+                    ? "bg-white border-green-500"
+                    : "bg-gray-50 border-gray-300"
+                }`}
+              >
+                <h2 className="font-semibold text-xl text-blue-700 mb-1">
+                  {concours.title}
+                </h2>
+                <p className="text-xs text-gray-500 mb-2">{concours.date}</p>
+                
+                <div className="space-y-1 mb-4">
+                  <p className="text-sm text-gray-700">
+                    <span className="font-medium">Niveau:</span> {concours.niveau}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-medium">Diplôme:</span> {concours.choix}
+                  </p>
+                  <p className="text-sm text-gray-700">
+                    <span className="font-medium">Domaine:</span> {concours.domaine}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => handleVoirDetails(concours.pdfUrl)}
+                  disabled={!concours.isAvailable}
+                  className={`w-full px-4 py-2 font-medium rounded-lg transition ${
+                    concours.isAvailable
+                      ? "bg-green-500 hover:bg-green-600 text-white"
+                      : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  }`}
+                >
+                  {concours.isAvailable ? "Voir les détails" : "Non disponible"}
+                </button>
+              </div>
+            ))
+          )}
+        </div>
       </div>
 
       {/* Upload Modal */}
       {showUploadModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full overflow-hidden">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full">
             <div className="bg-blue-600 p-4 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <FiInfo className="text-white text-xl" />
-                <h3 className="text-white font-semibold text-lg">Partagez un concours</h3>
+                <h3 className="text-white font-semibold">Partagez un concours</h3>
               </div>
               <button 
                 onClick={() => setShowUploadModal(false)}
                 className="text-white hover:text-blue-100"
+                aria-label="Fermer"
               >
                 <FiX className="text-xl" />
               </button>
             </div>
             
-            <div className="p-6">
+            <div className="p-5">
               <div className="mb-4">
                 <h4 className="font-medium text-gray-800 mb-2">Comment contribuer ?</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm">
                   Aidez-nous à enrichir notre base de données en partageant des informations sur des concours que vous connaissez.
                 </p>
               </div>
               
-              <div className="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
+              <div className="bg-blue-50 p-3 rounded-lg border border-blue-100 mb-4">
                 <h4 className="font-medium text-blue-800 mb-2 flex items-center gap-2">
                   <FiInfo className="text-blue-600" />
                   Informations requises
@@ -213,7 +243,7 @@ const ConcoursPage = () => {
               </div>
             </div>
             
-            <div className="bg-gray-50 px-6 py-4 flex justify-end gap-3 border-t border-gray-200">
+            <div className="bg-gray-50 px-5 py-3 flex justify-end gap-3 border-t border-gray-200">
               <button
                 onClick={() => setShowUploadModal(false)}
                 className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
