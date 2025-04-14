@@ -14,7 +14,7 @@ const HomeView = () => {
   const reviews = [
     {
       id: 1,
-      text: "CONCOURS-MAROC, la plateforme qui m'a sauvé la vie pour les concours! Grâce aux annales et exercices corrigés, j'ai intégré l'INPT alors que j'étais moyen en classe.",
+      text: "CONCOURS-MAROC, la plateforme qui m'a sauvé la vie pour les concours! Grâce aux annales et exercices corrigés, j'ai intégré l'ENSIASD alors que j'étais moyen en classe.",
       author: "Yassine Bou",
       role: "Élève ENSIASD",
       image: user1

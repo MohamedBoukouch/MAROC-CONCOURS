@@ -743,7 +743,7 @@
       "domaine": "?"
     },
     {
-      "id": 74,
+      "id": 75,
       "title": "ENSA SAFY MATH ",
       "date": "2018/2019",
       "pdfUrl": "https://drive.google.com/drive/folders/1aeaF-5gx4Qojhie4Uk1D9OUV-DF3SFTz?usp=drive_link",
@@ -754,7 +754,7 @@
     }
     ,
     {
-      "id": 74,
+      "id": 76,
       "title": "ENSA SAFY SI ",
       "date": "2018/2019",
       "pdfUrl": "https://drive.google.com/drive/folders/18U-armpvSeK_yMwBtVz7JyHurVgqyuZA?usp=drive_link",
@@ -765,7 +765,7 @@
     }
     ,
     {
-      "id": 74,
+      "id": 77,
       "title": "ENSA SAFY MATH ",
       "date": "2015/2016",
       "pdfUrl": "https://drive.google.com/file/d/1gMnbaqr0zPszin04QEV-EuZElDBCtdrS/view?usp=drive_link",
@@ -775,7 +775,7 @@
       "domaine": "?"
     },
     {
-      "id": 74,
+      "id": 78,
       "title": "ENSA SAFY Electromagnétisme ",
       "date": "2015/2016",
       "pdfUrl": "https://drive.google.com/file/d/1gMnbaqr0zPszin04QEV-EuZElDBCtdrS/view?usp=drive_link",
@@ -785,7 +785,7 @@
       "domaine": "Mécanique"
     },
     {
-      "id": 74,
+      "id": 79,
       "title": "ENSA SAFY MATH ",
       "date": "2018/2019",
       "pdfUrl": "https://drive.google.com/drive/folders/1qbP2m55ac1idrEyt52X9oJSb1NgMEcog?usp=drive_link",
@@ -796,7 +796,7 @@
     }
     ,
     {
-      "id": 74,
+      "id": 80,
       "title": "ENSA AGADIR ",
       "date": "2007/2009",
       "pdfUrl": "https://drive.google.com/file/d/1De_FMKbUOIXwpiSa7qMGZNhWFphNFEps/view?usp=drive_link",
@@ -806,7 +806,7 @@
       "domaine": "?"
     },
     {
-      "id": 74,
+      "id": 81,
       "title": "ENSA AGADIR ",
       "date": "2014/2015",
       "pdfUrl": "https://drive.google.com/file/d/1nRAlS1zkYeZIZWbRZgQ2D1bjza2a2p81/view?usp=drive_link",
@@ -816,7 +816,7 @@
       "domaine": "?"
     },
     {
-      "id": 74,
+      "id": 82,
       "title": "ENSA OUJDA ",
       "date": "2011/2012",
       "pdfUrl": "https://drive.google.com/file/d/1o2M3qERPiUxm8URyvnR7M3Tt6aQ52c9k/view?usp=drive_link",
@@ -826,7 +826,7 @@
       "domaine": "?"
     },
     {
-      "id": 74,
+      "id": 83,
       "title": "ENSA SAFI ",
       "date": "2012/2013",
       "pdfUrl": "https://drive.google.com/file/d/1noYAHLxSXr7pKlIc0rA4drjCnGqVx36J/view?usp=drive_link",
@@ -834,7 +834,209 @@
       "niveau": "Bac+2",
       "choix": "Cycle",
       "domaine": "?"
+    },
+    {
+      "id": 84,
+      "title": "FSJES AIN CHOCK ",
+      "date": "2023/2024",
+      "pdfUrl": "https://drive.google.com/drive/folders/1B0zxn7IEhNIrxYE_ZkI16dAdFBBUdWC2?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "Audit et Ingéniérie financière"
+    },
+    {
+      "id": 85,
+      "title": "FSJES MARRAKECH",
+      "date": "2023/2024",
+      "pdfUrl": "https://drive.google.com/file/d/1iGr68dD01pVylDiRaX6Ip3FIrdinI_H5/view?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "Laboratoire de Recherche en Innovation, Responsabilités et Développement Durable"
+    },
+    {
+      "id": 86,
+      "title": "FLASH AIT MELLOL",
+      "date": "2023/2024",
+      "pdfUrl": "https://drive.google.com/drive/folders/1TIxf_rb07pIHBdpkl8eaxH7kqn4kkD3P?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "Comptabilité Contrôle Audit"
+    },
+    {
+      "id": 87,
+      "title": "FLASH MARRAKECH",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1yYUgJrp1jIt7bhWknw7qbqicBLitDywa?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "Comptabilité Contrôle Audit"
+    },
+    {
+      "id": 88,
+      "title": "FSJES AIN SEBAA",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1onMuGz0DA7Q47nrdq0ewi_6SrF-XWyoi?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "gestion financière et comptable"
+    },
+    {
+      "id": 89,
+      "title": "FSJES AGDAL",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1s6lfGOaLdWKMg4buDgvDSEA5wd6LsJ0x?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "GESTION FINANCIERE COMPTABLE ET FISCALE"
+    },
+    {
+      "id": 90,
+      "title": "FSJES AGDAL",
+      "date": "2023/2025",
+      "pdfUrl": "https://drive.google.com/drive/folders/1fhgZsuz5vI1mI44rpt-7as73pkqcAoEM?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "SCIENCE DE GESTION"
+    },
+    {
+      "id": 91,
+      "title": "FSJES MOHAMMEDIA",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1-E4rsGDR8qlPJ9W5EF_yolwlvJ7-bOYg?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "Comptabilité Contrôle Audit"
+    },
+    {
+      "id": 92,
+      "title": "FSJES SOUISSI",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1B1ReQh8GuQiVA-5omi-OgwikzX4vni4G?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "FINANCE DES MARCHES ET ENTREPRISES"
+    },
+    {
+      "id": 93,
+      "title": "FSJES SOUISSI",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1B1ReQh8GuQiVA-5omi-OgwikzX4vni4G?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "ANALYSE ECONOMIQUE ET MODÉLISATION"
+    },
+    {
+      "id": 94,
+      "title": "FSJES SALE",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1fSJGM8SzNFw22oSu28FkJT_K3xzrRUOs?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "INGÉNIERIE ÉCONOMIQUE ET FINANCIÈRE PUBLIQUE"
+    },
+    {
+      "id": 95,
+      "title": "FSJES SUOISSI",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1q5XNXO4VsDVKTBlTi9TqX3XX-La0oeho?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "BUSINESS ADMINISTRATION"
+    },
+    {
+      "id": 96,
+      "title": "FSJES MARRAKECH",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1IyErNBNxqJdWblAWse0ZYZ3Ev3Tmykjg?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "STRATEGIE & MANAGEMENT DES RESSOURCES HUMAINES"
+    },
+    {
+      "id": 97,
+      "title": "FSJES MARRAKECH",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1rLR_rSOohASrS6gBGgy7Bor-Ogck_Rpf?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "MARKETING ET LOGISTIQUE"
+    },
+    {
+      "id": 98,
+      "title": "FSJES FES",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/186XW15TSybYHvy-_llZ5PN9lUPUdKvvg?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "COMPTABILITÉ CONTRÔLE ET AUDIT"
+    },
+    {
+      "id": 99,
+      "title": "FP TAZA",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/18kbfMYvCAj1VNb-ZZBQcgBv0FsfLmTIq?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Master",
+      "domaine": "COMPTABILITÉ CONTRÔLE ET AUDIT"
+    },
+    {
+      "id": 100,
+      "title": "FSJES SOUISSI",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1HK7sdz5V-qBMtCRzx3KymS1gVX-SHGfB?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "MANAGEMENT STRATÉGIQUE, MANAGEMENT DES ORGANISATIONS LABORATOIRE..."
+    },
+    {
+      "id": 101,
+      "title": "FSJES SETTAT",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1wd3HMQCWFa0AkT0bdFNo8IrBrKqQfPOZ?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "MANAGEMENT DES RESSOURCES HUMAINES"
+    },
+    {
+      "id": 102,
+      "title": "ISCAE",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1O8T9IgA0sHzbNFBwh7y98CQHpaFX4M2z?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "?"
+    },
+    {
+      "id": 103,
+      "title": "FSJES FES",
+      "date": "2024/2026",
+      "pdfUrl": "https://drive.google.com/drive/folders/1ipGgQnCAYtyAEGerkpL2DPDeOLNU_z6F?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "MANAGEMENT, AUDIT ET CONTRÔLE DES ORGANISATIONS"
     }
+
+
+
+
+
+
 
 
 
