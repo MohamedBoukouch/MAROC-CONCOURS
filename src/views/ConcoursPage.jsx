@@ -11,7 +11,6 @@ const ConcoursPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading data
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 500);
@@ -38,7 +37,6 @@ const ConcoursPage = () => {
 
   const handleFilterChange = (setter) => (e) => {
     setter(e.target.value);
-    // Reset other filters when one is selected
     if (e.target.value) {
       if (setter === setSelectedNiveau) {
         setSelectedChoix("");
@@ -80,19 +78,20 @@ const ConcoursPage = () => {
           </p>
         </div>
 
-        {/* Search and Filters */}
+        {/* Search Input - Now on its own line */}
+        <div className="mb-6">
+          <input
+            type="text"
+            placeholder="Rechercher un concours par titre, domaine, niveau..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none transition text-lg"
+          />
+        </div>
+
+        {/* Filters Container - Now on separate line below search */}
         <div className="flex flex-col md:flex-row gap-3 mb-8">
-          <div className="flex-1">
-            <input
-              type="text"
-              placeholder="Rechercher un concours..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none transition"
-            />
-          </div>
-          
-          <div className="flex flex-wrap gap-3 md:flex-nowrap">
+          <div className="flex flex-wrap gap-3 md:flex-nowrap w-full">
             <select
               value={selectedNiveau}
               onChange={handleFilterChange(setSelectedNiveau)}
@@ -119,6 +118,7 @@ const ConcoursPage = () => {
               onChange={handleFilterChange(setSelectedDomaine)}
               className="flex-1 min-w-[120px] p-3 border rounded-lg bg-white shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none"
             >
+              {/* informatique */}
               <option value="">Tous domaines</option>
               <option value="informatique">Informatique</option>
               <option value="industrielle">Industrielle</option>
@@ -126,11 +126,26 @@ const ConcoursPage = () => {
               <option value="informatique & industriel">Info & industriel</option>
               <option value="Génie électrique">Génie électrique</option>
               <option value="Génie électrique & Génie mécanique">Génie électrique/mécanique</option>
-              <option value="Informatique Industrielle & Systèmes Electriques & Mécanique">
-                Info Industrielle & Systèmes
-              </option>
-            </select>
+              <option value="Informatique Industrielle & Systèmes Electriques & Mécanique">Info Industrielle & Systèmes</option>
+              
+              {/* managment */}
+              <option value="Comptabilité Contrôle Audit">Comptabilité Contrôle Audit</option>
+              <option value="FINANCE DES MARCHES ET ENTREPRISES">FINANCE DES MARCHES ET ENTREPRISES</option>
+              <option value="ANALYSE ECONOMIQUE ET MODÉLISATION">ANALYSE ECONOMIQUE ET MODÉLISATION</option>
+              <option value="INGÉNIERIE ÉCONOMIQUE ET FINANCIÈRE PUBLIQUE">INGÉNIERIE ÉCONOMIQUE ET FINANCIÈRE PUBLIQUE</option>
+              <option value="BUSINESS ADMINISTRATION">BUSINESS ADMINISTRATION</option>
+              <option value="STRATEGIE & MANAGEMENT DES RESSOURCES HUMAINES">STRATEGIE & MANAGEMENT DES RESSOURCES HUMAINES</option>
+              <option value="MARKETING ET LOGISTIQUE">MARKETING ET LOGISTIQUE</option>
+              <option value="COMPTABILITÉ CONTRÔLE ET AUDIT">COMPTABILITÉ CONTRÔLE ET AUDIT</option>
+              <option value="MANAGEMENT STRATÉGIQUE, MANAGEMENT DES ORGANISATIONS LABORATOIRE...">MANAGEMENT STRATÉGIQUE, MANAGEMENT DES ORGANISATIONS LABORATOIRE...</option>
+              <option value="MANAGEMENT DES RESSOURCES HUMAINES">MANAGEMENT DES RESSOURCES HUMAINES</option>
+              <option value="MANAGEMENT, AUDIT ET CONTRÔLE DES ORGANISATIONS">MANAGEMENT, AUDIT ET CONTRÔLE DES ORGANISATIONS</option>
+              <option value="Audit et Ingéniérie financière">Audit et Ingéniérie financière</option>
+              <option value="Comptabilité Contrôle Audit">Comptabilité Contrôle Audit</option>
+              <option value="GESTION FINANCIERE COMPTABLE ET FISCALE">GESTION FINANCIERE COMPTABLE ET FISCALE</option>
+              <option value="SCIENCE DE GESTION">SCIENCE DE GESTION</option>
             
+            </select>
             <button
               onClick={handleUploadClick}
               className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 rounded-lg transition-all shadow-md whitespace-nowrap min-w-[150px]"
