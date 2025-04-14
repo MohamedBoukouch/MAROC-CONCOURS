@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import NewFeaturesButton from '../components/home/NewFeaturesButton';
-import concoursData from '../data/concours.json';
 
 import user1 from '../assets/users/user2.jpeg';
 import user2 from '../assets/users/user3.jpg';
@@ -63,24 +62,23 @@ const HomeView = () => {
     }
   ];
 
-  // Rest of your component code...
-
-  // Compter les documents par domaine exact
-  const domaines = concoursData.reduce((acc, item) => {
-    const domaine = item.domaine || 'Autres';
-    if (!acc[domaine]) {
-      acc[domaine] = 0;
-    }
-    acc[domaine]++;
-    return acc;
-  }, {});
+  // Static list of schools
+  const domains = [
+    'Informatique',
+    'Économique',
+    'Mécanique',
+    'Industrielle',
+    'Agricultulle',
+    'Médcienne',
+    'Génie civile'
+  ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef(null);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  // Défilement automatique
+  // Auto-scrolling
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % reviews.length);
@@ -88,7 +86,7 @@ const HomeView = () => {
     return () => clearInterval(interval);
   }, [reviews.length]);
 
-  // Gestion du swipe pour mobile
+  // Mobile swipe handling
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -109,8 +107,6 @@ const HomeView = () => {
   return (
     <div className='min-h-screen bg-gray-50'>
       <div className='flex flex-col justify-center items-center container mx-auto px-4 py-12'>
-        {/* <NewFeaturesButton /> */}
-        
         <div className='text-center mb-16'>
           <h1 className='pt-7 font-Oswald text-5xl font-bold text-gray-800'>Votre Plateforme des <span className='text-blue-600 '>Concours !!</span></h1>
           <h2 className='text-xl text-gray-600 mt-4'>
@@ -129,7 +125,7 @@ const HomeView = () => {
             <h4 className="text-xl text-gray-600">What your fellow CONCOURS-MAROC say about us</h4>
           </div>
 
-          {/* Slider des témoignages */}
+          {/* Testimonials slider */}
           <div 
             className="relative w-full overflow-hidden"
             ref={sliderRef}
@@ -171,20 +167,22 @@ const HomeView = () => {
               ))}
             </div>
           </div>
+          
           <div className="flex justify-center my-12">
-          <div className="w-0.5 bg-blue-600 h-30"></div>
+            <div className="w-0.5 bg-blue-600 h-30"></div>
           </div>
-          {/* Section des domaines exacts */}
+          
+          {/* Schools section */}
           <div className="mt-20">
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">Available Branches</h3>
+            <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">Nos Filières Disponibles</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-              {Object.entries(domaines).map(([domaine, count]) => (
-                <div key={domaine} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow hover:bg-blue-100 hover:cursor-pointer">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {domains.map((school, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow hover:bg-blue-100 hover:cursor-pointer">
                   <h4 className="text-xl font-semibold text-gray-800 mb-2">
-                    {domaine === '?' ? 'Autres Domaines' : domaine}
+                    {school}
                   </h4>
-                  <p className="text-gray-600">{count} Documents</p>
+                  <p className="text-gray-600">Documents disponibles</p>
                 </div>
               ))}
             </div>
