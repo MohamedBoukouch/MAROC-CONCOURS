@@ -68,9 +68,9 @@ const HomeView = () => {
     'Économique',
     'Mécanique',
     'Industrielle',
-    'Agricultulle',
-    'Médcienne',
-    'Génie civile'
+    'Agricole',
+    'Médecine',
+    'Génie civil'
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);

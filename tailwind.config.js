@@ -1,15 +1,18 @@
-// tailwind.config.js
-module.exports = {
-    content: [
-      './src/**/*.{html,js,jsx,ts,tsx}', // Make sure to scan all relevant files
-    ],
-    theme: {
-      extend: {
-        fontFamily: {
-          oswald: ['Oswald', 'sans-serif'], // Add the Oswald font here
-        },
+export const darkMode = 'class';
+export const content = [
+  "./src/**/*.{js,jsx,ts,tsx}",
+  "./public/index.html"
+];
+export const theme = {
+  extend: {
+    fontFamily: {
+      oswald: ['Oswald', 'sans-serif'],
+    },
+    colors: {
+      primary: {
+        600: '#2563eb',
       },
     },
-    plugins: [],
-  };
-  
+  },
+};
+export const plugins = [];

@@ -52,7 +52,7 @@ const Header = () => {
           onClick={handleClick} 
           className="ml-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-5 py-2 rounded-md hover:from-blue-700 hover:to-blue-600 transition-all shadow-sm text-sm font-medium"
         >
-          Commencer
+          Concours
         </button>
       </nav>
 
@@ -88,7 +88,7 @@ const Header = () => {
                   }}
                   className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 rounded-md hover:from-blue-700 hover:to-blue-600 transition-all text-lg font-medium"
                 >
-                  Commencer
+                  Concours
                 </button>
               </li>
             </ul>
