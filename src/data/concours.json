@@ -1002,7 +1002,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1HK7sdz5V-qBMtCRzx3KymS1gVX-SHGfB?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+3",
-      "choix": "MANAGEMENT STRATÉGIQUE, MANAGEMENT DES ORGANISATIONS LABORATOIRE..."
+      "domaine": "MANAGEMENT STRATÉGIQUE, MANAGEMENT DES ORGANISATIONS LABORATOIRE...",
+      "choix": "Master"
     },
     {
       "id": 101,
@@ -1011,7 +1012,9 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1wd3HMQCWFa0AkT0bdFNo8IrBrKqQfPOZ?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+3",
-      "choix": "MANAGEMENT DES RESSOURCES HUMAINES"
+      "domaine": "MANAGEMENT DES RESSOURCES HUMAINES",
+      "choix": "Master"
+      
     },
     {
       "id": 102,
@@ -1020,7 +1023,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1O8T9IgA0sHzbNFBwh7y98CQHpaFX4M2z?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+3",
-      "choix": "?"
+      "domaine": "?",
+      "choix": "Master"
     },
     {
       "id": 103,
@@ -1029,7 +1033,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1ipGgQnCAYtyAEGerkpL2DPDeOLNU_z6F?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+3",
-      "choix": "MANAGEMENT, AUDIT ET CONTRÔLE DES ORGANISATIONS"
+      "domaine": "MANAGEMENT, AUDIT ET CONTRÔLE DES ORGANISATIONS",
+      "choix": "Master"
     },
     {
       "id": 104,
@@ -1038,7 +1043,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1fCt5Q3r3vU7_XmSULiiM5g_9jQ4Lm0GK?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 105,
@@ -1047,7 +1053,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1A-XjO_Owl7j1RxJLSCe_xcR2MJhS--YF?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 106,
@@ -1056,7 +1063,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1dy5Y85AognKhW8iIq9D9yilQRWZ47EfX?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 107,
@@ -1065,7 +1073,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1kZ3WujP8-5tSlYQxtIqmldGNOeY1b7d0?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 108,
@@ -1074,7 +1083,8 @@
       "pdfUrl": "https://drive.google.com/file/d/1giPvDmf56KqEoQSgj06uJwCLEGvJcCPG/view?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 109,
@@ -1083,7 +1093,8 @@
       "pdfUrl": "https://drive.google.com/file/d/1oGw9dCStaeSr9CNujziruKKKE1uqr4mC/view?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     }
     ,
     {
@@ -1093,7 +1104,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1M_UvfCZzhMPtNPwCkc5IC3NGDg4z33Ke?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 111,
@@ -1102,7 +1114,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1RKoQFqTJSgToLBM4xvazgHztbTDF3MYw?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 112,
@@ -1111,7 +1124,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1DBoq1LkpHlvNvKWQZYROLXZHB-ZnrGK_?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 112,
@@ -1120,7 +1134,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/11cM90NdDyxMmGMZG2zsBnvi8FIi2y0D3?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     }
     ,
     {
@@ -1130,7 +1145,8 @@
       "pdfUrl": "https://drive.google.com/file/d/1CQmVC-SMXxsuHfaSlQiUwG_eTP2Oz0ge/view?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 112,
@@ -1139,7 +1155,8 @@
       "pdfUrl": "https://drive.google.com/file/d/1NGk5PjzzY-0M0szEobppcQomgvFv0gZv/view?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 112,
@@ -1148,7 +1165,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1o83ZkP4VIPQuGxmm672OZtoNV4HjHUJk?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 112,
@@ -1157,7 +1175,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1xReeqq8EJQzDKpXnR7xc080W0YViNJaS?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     },
     {
       "id": 112,
@@ -1166,7 +1185,8 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1LwZiMW0GaPFDctUKxqS63ewMs5dj5Nu0?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "choix": "informatique"
+      "domaine": "informatique",
+      "choix": "licence"
     }
 
 
