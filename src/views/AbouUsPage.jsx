@@ -65,7 +65,7 @@ const AboutUsPage = () => {
       </div>
 
       {/* Section équipe */}
-      <div className="mb-16">
+      {/* <div className="mb-16">
         <h2 className="text-3xl font-bold text-blue-800 mb-8 text-center">Notre Équipe</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {[
@@ -100,7 +100,7 @@ const AboutUsPage = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Valeurs */}
       <div className="bg-blue-50 rounded-xl p-8 mb-16 border border-blue-100">

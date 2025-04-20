@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaTrophy } from 'react-icons/fa'; // Importing an icon
 import NewFeaturesButton from '../components/home/NewFeaturesButton';
 
 import user1 from '../assets/users/user2.jpeg';
@@ -10,12 +12,13 @@ import user6 from '../assets/users/user6.jpg';
 import user7 from '../assets/users/user7.jpg';
 
 const HomeView = () => {
+  const navigate = useNavigate();
   const reviews = [
     {
       id: 1,
-      text: "CONCOURS-MAROC, la plateforme qui m'a sauvé la vie pour les concours! Grâce aux annales et exercices corrigés, j'ai intégré l'ENSIASD alors que j'étais moyen en classe.",
+      text: "CONCOURS-MAROC, la plateforme qui m'a sauvé la vie pour les concours! Grâce aux annales et exercices corrigés, j'ai intégré l'ENSIAS alors que j'étais moyen en classe.",
       author: "Yassine Bou",
-      role: "Élève ENSIASD",
+      role: "Élève ENSIAS",
       image: user1
     },
     {
@@ -78,6 +81,10 @@ const HomeView = () => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
+  const handleClick = () => {
+    navigate('/concours'); // Navigate to concours page
+  };
+
   // Auto-scrolling
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,12 +115,20 @@ const HomeView = () => {
     <div className='min-h-screen bg-gray-50'>
       <div className='flex flex-col justify-center items-center container mx-auto px-4 py-12'>
         <div className='text-center mb-16'>
-          <h1 className='pt-7 font-Oswald text-5xl font-bold text-gray-800'>Votre Plateforme des <span className='text-blue-600 '>Concours !!</span></h1>
+          <h1 className='pt-7 font-Oswald text-5xl font-bold text-gray-800'>Votre Plateforme des <span className='text-blue-600'>Concours !!</span></h1>
           <h2 className='text-xl text-gray-600 mt-4'>
             La référence ultime pour les concours des grandes écoles au Maroc :<br />
             INPT, EHTP, ENSA, FST et plus encore - Tout pour réussir vos examens d'accès
           </h2>
         </div>
+
+        <button
+          onClick={handleClick}
+          className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 m-10 rounded-md hover:from-blue-700 hover:to-blue-600 transition-all text-lg font-medium h-4xl w-2xs"
+        >
+          Concours
+          <FaTrophy className="text-yellow-300" />
+        </button>
 
         <div className="flex justify-center my-12">
           <div className="w-0.5 bg-blue-600 h-30"></div>
@@ -121,8 +136,8 @@ const HomeView = () => {
 
         <div className="w-full">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-2">They Love us!</h3>
-            <h4 className="text-xl text-gray-600">What your fellow CONCOURS-MAROC say about us</h4>
+            <h3 className="text-3xl font-bold text-gray-800 mb-2">Ils nous adorent !</h3>
+            <h4 className="text-xl text-gray-600">Ce que nos utilisateurs pensent de CONCOURS-MAROC</h4>
           </div>
 
           {/* Testimonials slider */}

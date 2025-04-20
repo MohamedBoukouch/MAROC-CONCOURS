@@ -80,7 +80,7 @@ const Footer = ({ darkMode }) => {
               </li>
               <li className="flex items-center">
                 <FaEnvelope className="mr-3 text-gray-400" />
-                <span className="text-gray-400">contact@maroc-concours.ma</span>
+                <span className="text-gray-400">concoursmaroc7@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -108,7 +108,7 @@ const Footer = ({ darkMode }) => {
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-xs md:text-sm text-center md:text-left">
-            &copy; {new Date().getFullYear()} MAROC-CONCOURS. Tous droits réservés.
+            &copy; 2025 - {new Date().getFullYear()} MAROC-CONCOURS. Tous droits réservés.
           </p>
           <div className="flex space-x-4 mt-2 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-white text-xs md:text-sm">Mentions légales</a>
