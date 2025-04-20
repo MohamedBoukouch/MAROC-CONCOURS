@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
+import { DarkModeContext } from '../context/DarkModeContext';
+
 
 const faqData = [
   {
@@ -54,6 +56,7 @@ const faqData = [
 ];
 
 const FaqPage = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const [openIndex, setOpenIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -67,7 +70,7 @@ const FaqPage = () => {
   );
 
   return (
-    <div className="max-w-4xl mx-auto py-10 px-4 sm:px-6 lg:px-8 bg-white rounded-lg shadow-lg">
+    <div className={` max-w-4xl mx-auto py-10 px-4 sm:px-6 lg:px-8 ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50'} rounded-lg shadow-lg `}>
       <h1 className="text-2xl sm:text-3xl font-bold text-center text-blue-700 mb-6">
         FAQ - Questions Fréquentes
       </h1>

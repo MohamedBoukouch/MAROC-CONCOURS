@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useContext}from 'react';
 import { FaAccessibleIcon, FaMedal, FaUsers, FaArrowRight } from 'react-icons/fa';
 import { FiCheckCircle } from 'react-icons/fi';
 import teamImage from '../assets/users/user1.png';
@@ -6,8 +6,12 @@ import logo from '../assets/logo.png';
 import admin1 from '../assets/admins/admin1.png';
 import admin2 from '../assets/admins/admin2.jpeg';
 import admin3 from '../assets/admins/admin3.jpeg';
+import { DarkModeContext } from '../context/DarkModeContext';
+
 
 const AboutUsPage = () => {
+  const { darkMode } = useContext(DarkModeContext);
+
 
   const whatsappGroupLink = "https://chat.whatsapp.com/HMgqaH3qpE9BwcyZCliwmr"; // Remplacez par votre vrai lien
 
@@ -34,29 +38,29 @@ const AboutUsPage = () => {
             pour maximiser vos chances de réussite.
           </p>
         </div>
-        <div className="bg-blue-50 p-8 rounded-xl shadow-sm border border-blue-100">
+        <div className={` ${darkMode ? 'bg-gray-800' : 'bg-blue-50'} p-8 rounded-xl shadow-sm border border-blue-100`}>
           <img 
             src={logo} 
             alt="Logo Concours Maroc" 
             className="w-40 h-40 mx-auto mb-6"
           />
-          <h3 className="text-xl font-semibold text-center text-gray-800 mb-4">
+          <h3 className={`text-xl font-semibold text-center ${darkMode ? 'text-gray-50' : 'text-gray-800'} mb-4 `}>
             Chiffres clés
           </h3>
           <div className="grid grid-cols-2 gap-4 text-center">
-            <div className="bg-white p-4 rounded-lg shadow border border-gray-100">
+            <div className={`${darkMode ? 'bg-gray-800' : 'bg-gray-50'} p-4 rounded-lg shadow border border-gray-100`}>
               <p className="text-3xl font-bold text-blue-600">500+</p>
               <p className="text-gray-600">Annales</p>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow border border-gray-100">
+            <div className="${darkMode ? 'bg-gray-800' : 'bg-gray-50'} p-4 rounded-lg shadow border border-gray-100">
               <p className="text-3xl font-bold text-blue-600">10K+</p>
               <p className="text-gray-600">Étudiants</p>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow border border-gray-100">
+            <div className="${darkMode ? 'bg-gray-800' : 'bg-gray-50'} p-4 rounded-lg shadow border border-gray-100">
               <p className="text-3xl font-bold text-blue-600">50+</p>
               <p className="text-gray-600">Écoles</p>
             </div>
-            <div className="bg-white p-4 rounded-lg shadow border border-gray-100">
+            <div className="${darkMode ? 'bg-gray-800' : 'bg-gray-50'} p-4 rounded-lg shadow border border-gray-100">
               <p className="text-3xl font-bold text-blue-600">100%</p>
               <p className="text-gray-600">Gratuit</p>
             </div>
@@ -103,7 +107,7 @@ const AboutUsPage = () => {
       </div> */}
 
       {/* Valeurs */}
-      <div className="bg-blue-50 rounded-xl p-8 mb-16 border border-blue-100">
+      <div className={`${darkMode ? 'bg-gray-800' : 'bg-blue-50'} rounded-xl p-8 mb-16 border border-blue-100 `}>
         <h2 className="text-3xl font-bold text-blue-800 mb-8 text-center">Nos Valeurs</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
@@ -126,12 +130,12 @@ const AboutUsPage = () => {
               bg: "bg-green-100"
             }
           ].map((value, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg text-center border border-gray-100 hover:shadow-md transition-shadow">
+            <div key={index} className={`${darkMode ? 'text-gray-50 ' : 'text-gray-800 bg-white'} p-6 rounded-lg text-center border border-gray-100 hover:shadow-md transition-shadow`}>
               <div className={`w-16 h-16 ${value.bg} rounded-full flex items-center justify-center mx-auto mb-4`}>
                 {value.icon}
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gray-800">{value.title}</h3>
-              <p className="text-gray-600 text-sm">{value.desc}</p>
+              <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-gray-50' : 'text-gray-800'}`}>{value.title}</h3>
+              <p className={` text-sm ${darkMode ? 'text-gray-50' : 'text-gray-800'}`}>{value.desc}</p>
             </div>
           ))}
         </div>

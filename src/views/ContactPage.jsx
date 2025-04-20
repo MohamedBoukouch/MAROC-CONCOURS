@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa"; // Social Media Icons
 import { AiOutlineMail } from "react-icons/ai"; // Email Icon
 import emailjs from "emailjs-com";
+import { DarkModeContext } from '../context/DarkModeContext';
 
 const ContactPage = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -40,13 +42,13 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-10 px-6 bg-white rounded-lg shadow-lg">
+    <div className={` ${darkMode ? 'bg-gray-900' : 'bg-gray-50'} max-w-4xl mx-auto py-10 px-6  shadow-lg`}>
       <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">Contact Us</h1>
 
       {/* Contact Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="block text-gray-700 font-medium mb-2" htmlFor="name">Full Name</label>
+          <label className={`block ${darkMode ? 'text-gray-50' : 'text-gray-800'} font-medium mb-2`} htmlFor="name">Full Name</label>
           <input
             id="name"
             type="text"
@@ -58,7 +60,7 @@ const ContactPage = () => {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-2" htmlFor="email">Email Address</label>
+          <label className={`block ${darkMode ? 'text-gray-50' : 'text-gray-800'} font-medium mb-2`} htmlFor="email">Email Address</label>
           <input
             id="email"
             type="email"
@@ -70,7 +72,7 @@ const ContactPage = () => {
         </div>
 
         <div>
-          <label className="block text-gray-700 font-medium mb-2" htmlFor="message">Message</label>
+          <label className={`block ${darkMode ? 'text-gray-50' : 'text-gray-800'} font-medium mb-2`} htmlFor="message">Message</label>
           <textarea
             id="message"
             value={formData.message}

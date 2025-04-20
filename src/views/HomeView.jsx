@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaTrophy } from 'react-icons/fa'; // Importing an icon
-import NewFeaturesButton from '../components/home/NewFeaturesButton';
+import { FaTrophy } from 'react-icons/fa';
+import { DarkModeContext } from '../context/DarkModeContext';
 
 import user1 from '../assets/users/user2.jpeg';
 import user2 from '../assets/users/user3.jpg';
@@ -12,7 +12,9 @@ import user6 from '../assets/users/user6.jpg';
 import user7 from '../assets/users/user7.jpg';
 
 const HomeView = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const navigate = useNavigate();
+  
   const reviews = [
     {
       id: 1,
@@ -65,7 +67,6 @@ const HomeView = () => {
     }
   ];
 
-  // Static list of schools
   const domains = [
     'Informatique',
     'Économique',
@@ -82,7 +83,7 @@ const HomeView = () => {
   const [touchEnd, setTouchEnd] = useState(0);
 
   const handleClick = () => {
-    navigate('/concours'); // Navigate to concours page
+    navigate('/concours');
   };
 
   // Auto-scrolling
@@ -112,11 +113,13 @@ const HomeView = () => {
   };
 
   return (
-    <div className='min-h-screen bg-gray-50'>
+    <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-300`}>
       <div className='flex flex-col justify-center items-center container mx-auto px-4 py-12'>
         <div className='text-center mb-16'>
-          <h1 className='pt-7 font-Oswald text-5xl font-bold text-gray-800'>Votre Plateforme des <span className='text-blue-600'>Concours !!</span></h1>
-          <h2 className='text-xl text-gray-600 mt-4'>
+          <h1 className={`pt-7 font-Oswald text-5xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+            Votre Plateforme des <span className='text-blue-600 dark:text-blue-400'>Concours !!</span>
+          </h1>
+          <h2 className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} mt-4`}>
             La référence ultime pour les concours des grandes écoles au Maroc :<br />
             INPT, EHTP, ENSA, FST et plus encore - Tout pour réussir vos examens d'accès
           </h2>
@@ -124,23 +127,22 @@ const HomeView = () => {
 
         <button
           onClick={handleClick}
-          className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-3 m-10 rounded-md hover:from-blue-700 hover:to-blue-600 transition-all text-lg font-medium h-4xl w-2xs"
+          className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 dark:from-blue-700 dark:to-blue-600 text-white px-6 py-3 m-10 rounded-md hover:from-blue-700 hover:to-blue-600 dark:hover:from-blue-800 dark:hover:to-blue-700 transition-all text-lg font-medium"
         >
           Concours
           <FaTrophy className="text-yellow-300" />
         </button>
 
         <div className="flex justify-center my-12">
-          <div className="w-0.5 bg-blue-600 h-30"></div>
+          <div className={`w-0.5 ${darkMode ? 'bg-blue-400' : 'bg-blue-600'} h-30`}></div>
         </div>
 
         <div className="w-full">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-2">Ils nous adorent !</h3>
-            <h4 className="text-xl text-gray-600">Ce que nos utilisateurs pensent de CONCOURS-MAROC</h4>
+            <h3 className={`text-3xl font-bold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2`}>Ils nous adorent !</h3>
+            <h4 className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Ce que nos utilisateurs pensent de CONCOURS-MAROC</h4>
           </div>
 
-          {/* Testimonials slider */}
           <div 
             className="relative w-full overflow-hidden"
             ref={sliderRef}
@@ -148,23 +150,20 @@ const HomeView = () => {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
+            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
               {reviews.map((review) => (
                 <div key={review.id} className="w-full flex-shrink-0 px-4">
-                  <div className="flex flex-col items-center bg-white rounded-xl shadow-md p-8 w-full">
+                  <div className={`flex flex-col items-center rounded-xl shadow-md p-8 w-full ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
                     <div className="flex flex-col items-center">
                       <img 
                         src={review.image} 
                         alt={review.author}
-                        className="w-20 h-20 rounded-full object-cover border-4 border-blue-100 mb-4"
+                        className="w-20 h-20 rounded-full object-cover border-4 border-blue-100 dark:border-blue-900 mb-4"
                       />
-                      <p className="text-gray-900 font-bold text-lg">{review.author}</p>
-                      <p className="text-gray-500 mb-4">{review.role}</p>
+                      <p className={`font-bold text-lg ${darkMode ? 'text-white' : 'text-gray-900'}`}>{review.author}</p>
+                      <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} mb-4`}>{review.role}</p>
                     </div>
-                    <blockquote className="text-gray-700 italic text-lg text-center max-w-2xl mx-auto">
+                    <blockquote className={`italic text-lg text-center max-w-2xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                       "{review.text}"
                     </blockquote>
                   </div>
@@ -176,7 +175,11 @@ const HomeView = () => {
               {reviews.map((_, index) => (
                 <button 
                   key={index}
-                  className={`w-3 h-3 mx-1 rounded-full transition-colors ${index === currentSlide ? 'bg-blue-600' : 'bg-gray-300'}`}
+                  className={`w-3 h-3 mx-1 rounded-full transition-colors ${
+                    index === currentSlide 
+                      ? (darkMode ? 'bg-blue-400' : 'bg-blue-600') 
+                      : 'bg-gray-300 dark:bg-gray-600'
+                  }`}
                   onClick={() => setCurrentSlide(index)}
                 />
               ))}
@@ -184,20 +187,24 @@ const HomeView = () => {
           </div>
           
           <div className="flex justify-center my-12">
-            <div className="w-0.5 bg-blue-600 h-30"></div>
+            <div className={`w-0.5 ${darkMode ? 'bg-blue-400' : 'bg-blue-600'} h-30`}></div>
           </div>
           
-          {/* Schools section */}
           <div className="mt-20">
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-8">Nos Filières Disponibles</h3>
+            <h3 className={`text-3xl font-bold text-center ${darkMode ? 'text-white' : 'text-gray-800'} mb-8`}>Nos Filières Disponibles</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {domains.map((school, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow hover:bg-blue-100 hover:cursor-pointer">
-                  <h4 className="text-xl font-semibold text-gray-800 mb-2">
+                <div 
+                  key={index} 
+                  className={`rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow hover:cursor-pointer ${
+                    darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-blue-100'
+                  }`}
+                >
+                  <h4 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2`}>
                     {school}
                   </h4>
-                  <p className="text-gray-600">Documents disponibles</p>
+                  <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Documents disponibles</p>
                 </div>
               ))}
             </div>

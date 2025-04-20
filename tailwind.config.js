@@ -1,18 +1,22 @@
-export const darkMode = 'class';
-export const content = [
-  "./src/**/*.{js,jsx,ts,tsx}",
-  "./public/index.html"
-];
-export const theme = {
-  extend: {
-    fontFamily: {
-      oswald: ['Oswald', 'sans-serif'],
-    },
-    colors: {
-      primary: {
-        600: '#2563eb',
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: "class",
+  theme: {
+    extend: {
+      fontFamily: {
+        titel: ["Oswald", "sans-serif"], // Exemple de police personnalisée
+      },
+      colors: {
+        primary: {
+          600: '#2563eb',
+        },
       },
     },
   },
-};
-export const plugins = [];
+  plugins: [],
+}

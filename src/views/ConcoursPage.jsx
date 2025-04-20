@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useContext} from "react";
 import { FiUpload, FiX, FiInfo } from "react-icons/fi";
 import concoursList from "../data/concours.json";
+import { DarkModeContext } from '../context/DarkModeContext';
+
 
 const ConcoursPage = () => {
+  const { darkMode } = useContext(DarkModeContext);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedNiveau, setSelectedNiveau] = useState("");
   const [selectedChoix, setSelectedChoix] = useState("");
@@ -69,11 +73,11 @@ const ConcoursPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-6">
+    <div className={` min-h-screen ${darkMode ? 'bg-gray-800' : 'bg-gray-50'} p-4 md:p-6`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-6">
           <h1 className="text-3xl md:text-4xl font-extrabold text-blue-700">Concours</h1>
-          <p className="text-gray-600 mt-2 text-base md:text-lg">
+          <p className={`${darkMode ? 'text-gray-50' : 'text-gray-600'} mt-2 text-base md:text-lg`}>
             Trouvez les meilleures opportunités pour votre avenir
           </p>
         </div>
@@ -85,7 +89,7 @@ const ConcoursPage = () => {
             placeholder="Rechercher un concours par titre, domaine, niveau..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none transition text-lg"
+            className= {`${darkMode ? 'text-gray-50' : 'text-gray-800'} w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-300 focus:outline-none transition text-lg `}
           />
         </div>
 
