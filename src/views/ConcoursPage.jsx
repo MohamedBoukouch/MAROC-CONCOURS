@@ -132,6 +132,7 @@ const ConcoursPage = () => {
               <option value="Industrielle">Industrielle</option>
               <option value="Économique">Économique</option>
               <option value="Mécanique">Mécanique</option>
+              <option value="Génie civil">Génie civil</option>
             
             </select>
             <button
