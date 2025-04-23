@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-
+import { DarkModeContext } from '../context/DarkModeContext';
 import logo from "../assets/logo.png";
 
 const Header = () => {
+  const { darkMode } = useContext(DarkModeContext);
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -24,14 +25,14 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full bg-white shadow-sm px-6 py-3 flex items-center justify-between sticky top-0 z-50">
+    <header className={` ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-800'} w-full shadow-sm px-6 py-3 flex items-center justify-between sticky top-0 z-50`}>
       {/* Logo & Home Button */}
       <button 
         className="cursor-pointer flex items-center focus:outline-none" 
         onClick={handleClickToHome}
       >
         <img src={logo} alt="Logo" className="w-10 h-10" />
-        <span className="ml-3 text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors">
+        <span className="ml-3 text-xl font-bold  hover:text-blue-600 transition-colors">
           MAROC-CONCOURS
         </span>
       </button>
@@ -42,7 +43,7 @@ const Header = () => {
           <Link
             key={item.path}
             to={`/${item.path}`}
-            className="text-gray-600 hover:text-blue-600 font-medium text-sm uppercase tracking-wider transition-colors relative group"
+            className="t hover:text-blue-600 font-medium text-sm uppercase tracking-wider transition-colors relative group"
           >
             {item.label}
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
