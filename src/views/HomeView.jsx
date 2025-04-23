@@ -194,15 +194,16 @@ const HomeView = () => {
             <h3 className={`text-3xl font-bold text-center ${darkMode ? 'text-white' : 'text-gray-800'} mb-8`}>Nos Filières Disponibles</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {domains.map((school, index) => (
-                <div 
+              {domains.map((demain, index) => (
+                <div
                   key={index} 
+                  onClick={() => navigate('/concours', { state: { selectedDomaine: demain } })}
                   className={`rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow hover:cursor-pointer ${
                     darkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-blue-100'
                   }`}
                 >
                   <h4 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-800'} mb-2`}>
-                    {school}
+                    {demain}
                   </h4>
                   <p className={darkMode ? 'text-gray-400' : 'text-gray-600'}>Documents disponibles</p>
                 </div>

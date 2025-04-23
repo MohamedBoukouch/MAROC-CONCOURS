@@ -7,7 +7,7 @@
       "isAvailable": true,
       "niveau": "bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 2,
@@ -17,7 +17,7 @@
       "isAvailable": true,
       "niveau": "bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 3,
@@ -27,7 +27,7 @@
       "isAvailable": true,
       "niveau": "bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 4,
@@ -37,7 +37,7 @@
       "isAvailable": true,
       "niveau": "bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 5,
@@ -47,7 +47,7 @@
       "isAvailable": true,
       "niveau": "bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 6,
@@ -57,7 +57,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 7,
@@ -67,7 +67,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 8,
@@ -77,7 +77,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 9,
@@ -87,7 +87,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 10,
@@ -97,7 +97,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Matser",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 11,
@@ -107,7 +107,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 12,
@@ -117,7 +117,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 13,
@@ -127,7 +127,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     
     {
@@ -138,7 +138,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 15,
@@ -178,7 +178,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 19,
@@ -188,7 +188,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 20,
@@ -198,7 +198,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 21,
@@ -208,7 +208,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 22,
@@ -218,7 +218,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 23,
@@ -228,7 +228,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 24,
@@ -238,7 +238,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 25,
@@ -248,7 +248,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 26,
@@ -258,7 +258,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 27,
@@ -268,7 +268,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 28,
@@ -278,7 +278,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 29,
@@ -288,7 +288,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 30,
@@ -298,7 +298,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 31,
@@ -308,7 +308,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 32,
@@ -318,7 +318,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 33,
@@ -328,7 +328,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 34,
@@ -338,7 +338,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 35,
@@ -348,7 +348,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 36,
@@ -358,7 +358,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 37,
@@ -368,7 +368,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 38,
@@ -378,7 +378,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 39,
@@ -388,7 +388,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 40,
@@ -398,7 +398,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & industriel"
+      "domaine": "Informatique"
     },
     {
       "id": 41,
@@ -408,7 +408,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 42,
@@ -418,7 +418,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 43,
@@ -428,7 +428,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 44,
@@ -438,7 +438,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 45,
@@ -448,7 +448,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 46,
@@ -458,7 +458,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique & Industrielle"
+      "domaine": "Informatique"
     },
     {
       "id": 47,
@@ -468,7 +468,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 48,
@@ -478,7 +478,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 49,
@@ -488,7 +488,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 50,
@@ -498,7 +498,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 51,
@@ -508,7 +508,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 52,
@@ -518,7 +518,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 53,
@@ -528,7 +528,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 54,
@@ -538,7 +538,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 55,
@@ -548,7 +548,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "informatique"
+      "domaine": "Informatique"
     },
     {
       "id": 56,
@@ -558,7 +558,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
+      "domaine": "Informatique"
     },
     {
       "id": 57,
@@ -568,7 +568,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
+      "domaine": "Informatique"
     },
     {
       "id": 58,
@@ -578,7 +578,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
+      "domaine": "Informatique"
     },
     {
       "id": 59,
@@ -588,7 +588,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
+      "domaine": "Informatique"
     },
     {
       "id": 60,
@@ -598,7 +598,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
+      "domaine": "Informatique"
     },
     {
       "id": 61,
@@ -608,7 +608,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique"
+      "domaine": "Informatique"
     },
     {
       "id": 62,
@@ -618,7 +618,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Informatique Industrielle & Systèmes Electriques & Mécanique  "
+      "domaine": "Informatique"
     },
     {
       "id": 63,
@@ -628,7 +628,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Génie électrique"
+      "domaine": "électrique"
     },
     {
       "id": 64,
@@ -638,7 +638,7 @@
       "isAvailable": true,
       "niveau": "Bac+2",
       "choix": "Cycle",
-      "domaine": "Génie électrique & Génie mécanique"
+      "domaine": "électrique"
     },
     {
       "id": 65,
@@ -843,7 +843,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "Audit et Ingéniérie financière"
+      "domaine": "Économique"
     },
     {
       "id": 85,
@@ -853,7 +853,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "Laboratoire de Recherche en Innovation, Responsabilités et Développement Durable"
+      "domaine": "Économique"
     },
     {
       "id": 86,
@@ -863,7 +863,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "Comptabilité Contrôle Audit"
+      "domaine": "Économique"
     },
     {
       "id": 87,
@@ -873,7 +873,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "Comptabilité Contrôle Audit"
+      "domaine": "Économique"
     },
     {
       "id": 88,
@@ -883,7 +883,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "gestion financière et comptable"
+      "domaine": "Économique"
     },
     {
       "id": 89,
@@ -893,7 +893,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "GESTION FINANCIERE COMPTABLE ET FISCALE"
+      "domaine": "Économique"
     },
     {
       "id": 90,
@@ -903,7 +903,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "SCIENCE DE GESTION"
+      "domaine": "Économique"
     },
     {
       "id": 91,
@@ -913,7 +913,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "Comptabilité Contrôle Audit"
+      "domaine": "Économique"
     },
     {
       "id": 92,
@@ -923,7 +923,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "FINANCE DES MARCHES ET ENTREPRISES"
+      "domaine": "Économique"
     },
     {
       "id": 93,
@@ -933,7 +933,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "ANALYSE ECONOMIQUE ET MODÉLISATION"
+      "domaine": "Économique"
     },
     {
       "id": 94,
@@ -943,7 +943,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "INGÉNIERIE ÉCONOMIQUE ET FINANCIÈRE PUBLIQUE"
+      "domaine": "Économique"
     },
     {
       "id": 95,
@@ -953,7 +953,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "BUSINESS ADMINISTRATION"
+      "domaine": "Économique"
     },
     {
       "id": 96,
@@ -963,7 +963,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "STRATEGIE & MANAGEMENT DES RESSOURCES HUMAINES"
+      "domaine": "Économique"
     },
     {
       "id": 97,
@@ -973,7 +973,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "MARKETING ET LOGISTIQUE"
+      "domaine": "Économique"
     },
     {
       "id": 98,
@@ -983,7 +983,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "COMPTABILITÉ CONTRÔLE ET AUDIT"
+      "domaine": "Économique"
     },
     {
       "id": 99,
@@ -993,7 +993,7 @@
       "isAvailable": true,
       "niveau": "Bac+3",
       "choix": "Master",
-      "domaine": "COMPTABILITÉ CONTRÔLE ET AUDIT"
+      "domaine": "Économique"
     },
     {
       "id": 100,
@@ -1002,7 +1002,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1HK7sdz5V-qBMtCRzx3KymS1gVX-SHGfB?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+3",
-      "domaine": "MANAGEMENT STRATÉGIQUE, MANAGEMENT DES ORGANISATIONS LABORATOIRE...",
+      "domaine": "Économique",
       "choix": "Master"
     },
     {
@@ -1012,7 +1012,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1wd3HMQCWFa0AkT0bdFNo8IrBrKqQfPOZ?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+3",
-      "domaine": "MANAGEMENT DES RESSOURCES HUMAINES",
+      "domaine": "Économique",
       "choix": "Master"
       
     },
@@ -1023,7 +1023,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1O8T9IgA0sHzbNFBwh7y98CQHpaFX4M2z?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+3",
-      "domaine": "?",
+      "domaine": "Économique",
       "choix": "Master"
     },
     {
@@ -1033,7 +1033,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1ipGgQnCAYtyAEGerkpL2DPDeOLNU_z6F?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+3",
-      "domaine": "MANAGEMENT, AUDIT ET CONTRÔLE DES ORGANISATIONS",
+      "domaine": "Économique",
       "choix": "Master"
     },
     {
@@ -1043,7 +1043,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1fCt5Q3r3vU7_XmSULiiM5g_9jQ4Lm0GK?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1053,7 +1053,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1A-XjO_Owl7j1RxJLSCe_xcR2MJhS--YF?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1063,7 +1063,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1dy5Y85AognKhW8iIq9D9yilQRWZ47EfX?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1073,7 +1073,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1kZ3WujP8-5tSlYQxtIqmldGNOeY1b7d0?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1083,7 +1083,7 @@
       "pdfUrl": "https://drive.google.com/file/d/1giPvDmf56KqEoQSgj06uJwCLEGvJcCPG/view?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1093,7 +1093,7 @@
       "pdfUrl": "https://drive.google.com/file/d/1oGw9dCStaeSr9CNujziruKKKE1uqr4mC/view?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     }
     ,
@@ -1104,7 +1104,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1M_UvfCZzhMPtNPwCkc5IC3NGDg4z33Ke?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1114,7 +1114,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1RKoQFqTJSgToLBM4xvazgHztbTDF3MYw?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1124,7 +1124,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1DBoq1LkpHlvNvKWQZYROLXZHB-ZnrGK_?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1134,7 +1134,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/11cM90NdDyxMmGMZG2zsBnvi8FIi2y0D3?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     }
     ,
@@ -1145,7 +1145,7 @@
       "pdfUrl": "https://drive.google.com/file/d/1CQmVC-SMXxsuHfaSlQiUwG_eTP2Oz0ge/view?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1155,7 +1155,7 @@
       "pdfUrl": "https://drive.google.com/file/d/1NGk5PjzzY-0M0szEobppcQomgvFv0gZv/view?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1165,7 +1165,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1o83ZkP4VIPQuGxmm672OZtoNV4HjHUJk?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1175,7 +1175,7 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1xReeqq8EJQzDKpXnR7xc080W0YViNJaS?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
     },
     {
@@ -1185,11 +1185,249 @@
       "pdfUrl": "https://drive.google.com/drive/folders/1LwZiMW0GaPFDctUKxqS63ewMs5dj5Nu0?usp=drive_link",
       "isAvailable": true,
       "niveau": "Bac+2",
-      "domaine": "informatique",
+      "domaine": "Informatique",
       "choix": "licence"
+    },
+    {
+      "id": 113,
+      "title": "FST SETTAT",
+      "date": "2011/2012",
+      "pdfUrl": "https://drive.google.com/drive/folders/1a7mzyQb8__Ddy4SwD78YX0de2_OJZ5ET?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 114,
+      "title": "ENSMR(ENIM)",
+      "date": "2015/2016 ",
+      "pdfUrl": "https://drive.google.com/drive/folders/16FJDU7PWuu1x2z_NWtBOEQDEXz-m01E8?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 115,
+      "title": "ENSIAS",
+      "date": "2016/2017",
+      "pdfUrl": "https://drive.google.com/drive/folders/10l-ebNranKO-vMJOT1BT-ssbzlxT2C0t?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 116,
+      "title": "ENSIAS PHYSIQUE",
+      "date": "2012/2013",
+      "pdfUrl": "https://drive.google.com/drive/folders/11fW98GtFdBGnpwZXmyg7kizFpDQpLaYE?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 117,
+      "title": "ENSIAS MATH",
+      "date": "2012/2013",
+      "pdfUrl": "https://drive.google.com/drive/folders/1VFOZK8z9S-ea4-ePcCAaSokpXEGsMKrY?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 118,
+      "title": "ENSIAS",
+      "date": "2013/2014",
+      "pdfUrl": "https://drive.google.com/drive/folders/1Rl6wdU3VzPI55ofZovm5whnNtyc0VKDf?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 119,
+      "title": "ENSIAS",
+      "date": "2008/2009",
+      "pdfUrl": "https://drive.google.com/drive/folders/119hHAGJIYDc-mOigP64thQTZG0pnANmP?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 120,
+      "title": "ENSIAS",
+      "date": "2015/2016",
+      "pdfUrl": "https://drive.google.com/drive/folders/1wr_Hixs0TvO8VkoQcR7KwR2OnPkFAGXF?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 121,
+      "title": "ENSMR(ENIM)",
+      "date": "2016/2017",
+      "pdfUrl": "https://drive.google.com/drive/folders/1qVdWZGgoWZ86FOxL6O6y7g67K9w2-JSQ?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 122,
+      "title": "ENSAM CASA",
+      "date": "2015/2016",
+      "pdfUrl": "https://drive.google.com/drive/folders/1K9sN5hduV5ftK1OXSQ0XNQOyd4FYqrf1?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 123,
+      "title": "ENSAM MEKNES",
+      "date": "2012/2013",
+      "pdfUrl": "https://drive.google.com/drive/folders/1eAcSee7gfeVq43YUrvxvycPqy3LK7DP2?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+3",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 124,
+      "title": "ENSEM PHYSIQUE",
+      "date": "2012/2013",
+      "pdfUrl": "https://drive.google.com/drive/folders/1D7nTvFQm1-kA7-lrQD3DqGM5-SwKZ13q?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 125,
+      "title": "ENSEM MATH",
+      "date": "2012/2013",
+      "pdfUrl": "https://drive.google.com/drive/folders/1I8td6fTtDR2XU8dvMhISe5EOHX18JAcG?usp=drive_linkhttps://drive.google.com/drive/folders/1s5pam6nslpUspMljvYJo5BQUb6ceoewH?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 126,
+      "title": "ENSEM",
+      "date": "2014/2015",
+      "pdfUrl": "https://drive.google.com/drive/folders/1s5pam6nslpUspMljvYJo5BQUb6ceoewH?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 127,
+      "title": "ENSEM",
+      "date": "2013/2014",
+      "pdfUrl": "https://drive.google.com/drive/folders/1LSrrymszzT4Nmz7At-LYTOSc-s5u96g_?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 128,
+      "title": "ENSEM",
+      "date": "2011/2012",
+      "pdfUrl": "https://drive.google.com/drive/folders/1o4QxrTFdlW9L9ERazE5utD7JwrsvJi-h?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 129,
+      "title": "ENSIAS",
+      "date": "?/?",
+      "pdfUrl": "https://drive.google.com/drive/folders/1x898AsIT0vSR0idj79iin-CR_tkp7ikL?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 130,
+      "title": "ENSAM MEKNES ",
+      "date": "2010/2011",
+      "pdfUrl": "hhttps://drive.google.com/file/d/1yeGfEFS1iqKoaNdfqUabhg9WPKmBgyZk/view?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Mécanique"
+    },
+    {
+      "id": 131,
+      "title": "ENSIAS MATH",
+      "date": "2012/2013",
+      "pdfUrl": "https://drive.google.com/drive/folders/10l-ebNranKO-vMJOT1BT-ssbzlxT2C0t?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "Cycle",
+      "domaine": "Industrielle"
+    },
+    {
+      "id": 132,
+      "title": "EST MEKNES",
+      "date": "2023/2024",
+      "pdfUrl": "https://drive.google.com/file/d/10BmoIDrjzqD2JrQ-N9mPUi6N9DwUWUMi/view?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "licence",
+      "domaine": "Génie civil"
+    },
+    {
+      "id": 133,
+      "title": "EST SALE",
+      "date": "2023/2024",
+      "pdfUrl": "https://drive.google.com/file/d/1TWyBzz-TE-O804W9uerkWG_SFCDB1uIP/view?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "licence",
+      "domaine": "Génie civil"
+    },
+    {
+      "id": 134,
+      "title": "LP FKIH BEN SALEH",
+      "date": "2023/2024",
+      "pdfUrl": "https://drive.google.com/file/d/1USvh0qOqVc7A0SXRRdxisO7ReI_c5jcd/view?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "licence",
+      "domaine": "Génie civil"
+    },
+    {
+      "id": 135,
+      "title": "FS OUJDA",
+      "date": "2015/2016",
+      "pdfUrl": "https://drive.google.com/file/d/1ta6rOdVcIE96FccLVebuCbqPzArEeC0v/view?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "licence",
+      "domaine": "Génie civil"
+    },
+    {
+      "id": 136,
+      "title": "QCM",
+      "date": "2023/2024",
+      "pdfUrl": "https://drive.google.com/file/d/1pzbY3W8sjeWyhWymOchhsX9bKGQhhY6S/view?usp=drive_link",
+      "isAvailable": true,
+      "niveau": "Bac+2",
+      "choix": "licence",
+      "domaine": "Génie civil"
     }
-
-
 
 
 

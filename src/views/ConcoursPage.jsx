@@ -1,16 +1,20 @@
 import React, { useState, useEffect ,useContext} from "react";
+import { useLocation } from 'react-router-dom';
+
 import { FiUpload, FiX, FiInfo } from "react-icons/fi";
 import concoursList from "../data/concours.json";
 import { DarkModeContext } from '../context/DarkModeContext';
 
 
 const ConcoursPage = () => {
-  const { darkMode } = useContext(DarkModeContext);
+  const location = useLocation();
+  const initialDomaine = location.state?.selectedDomaine || "";
 
+  const { darkMode } = useContext(DarkModeContext);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedNiveau, setSelectedNiveau] = useState("");
   const [selectedChoix, setSelectedChoix] = useState("");
-  const [selectedDomaine, setSelectedDomaine] = useState("");
+  const [selectedDomaine, setSelectedDomaine] = useState(initialDomaine);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -124,30 +128,10 @@ const ConcoursPage = () => {
             >
               {/* informatique */}
               <option value="">Tous domaines</option>
-              <option value="informatique">Informatique</option>
-              <option value="industrielle">Industrielle</option>
-              <option value="economie">Économie</option>
-              <option value="informatique & industriel">Info & industriel</option>
-              <option value="Génie électrique">Génie électrique</option>
-              <option value="Génie électrique & Génie mécanique">Génie électrique/mécanique</option>
-              <option value="Informatique Industrielle & Systèmes Electriques & Mécanique">Info Industrielle & Systèmes</option>
-              
-              {/* managment */}
-              <option value="Comptabilité Contrôle Audit">Comptabilité Contrôle Audit</option>
-              <option value="FINANCE DES MARCHES ET ENTREPRISES">FINANCE DES MARCHES ET ENTREPRISES</option>
-              <option value="ANALYSE ECONOMIQUE ET MODÉLISATION">ANALYSE ECONOMIQUE ET MODÉLISATION</option>
-              <option value="INGÉNIERIE ÉCONOMIQUE ET FINANCIÈRE PUBLIQUE">INGÉNIERIE ÉCONOMIQUE ET FINANCIÈRE PUBLIQUE</option>
-              <option value="BUSINESS ADMINISTRATION">BUSINESS ADMINISTRATION</option>
-              <option value="STRATEGIE & MANAGEMENT DES RESSOURCES HUMAINES">STRATEGIE & MANAGEMENT DES RESSOURCES HUMAINES</option>
-              <option value="MARKETING ET LOGISTIQUE">MARKETING ET LOGISTIQUE</option>
-              <option value="COMPTABILITÉ CONTRÔLE ET AUDIT">COMPTABILITÉ CONTRÔLE ET AUDIT</option>
-              <option value="MANAGEMENT STRATÉGIQUE, MANAGEMENT DES ORGANISATIONS LABORATOIRE...">MANAGEMENT STRATÉGIQUE, MANAGEMENT DES ORGANISATIONS LABORATOIRE...</option>
-              <option value="MANAGEMENT DES RESSOURCES HUMAINES">MANAGEMENT DES RESSOURCES HUMAINES</option>
-              <option value="MANAGEMENT, AUDIT ET CONTRÔLE DES ORGANISATIONS">MANAGEMENT, AUDIT ET CONTRÔLE DES ORGANISATIONS</option>
-              <option value="Audit et Ingéniérie financière">Audit et Ingéniérie financière</option>
-              <option value="Comptabilité Contrôle Audit">Comptabilité Contrôle Audit</option>
-              <option value="GESTION FINANCIERE COMPTABLE ET FISCALE">GESTION FINANCIERE COMPTABLE ET FISCALE</option>
-              <option value="SCIENCE DE GESTION">SCIENCE DE GESTION</option>
+              <option value="Informatique">Informatique</option>
+              <option value="Industrielle">Industrielle</option>
+              <option value="Économique">Économique</option>
+              <option value="Mécanique">Mécanique</option>
             
             </select>
             <button
