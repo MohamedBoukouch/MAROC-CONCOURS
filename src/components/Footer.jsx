@@ -106,8 +106,7 @@ const Footer = () => {
                 <span className="font-medium">Buy Me a Coffee</span>
               </div>
               <p className="text-gray-300 text-sm mb-4">
-                Support our work by buying us a coffee. Every donation helps us improve the platform.
-              </p>
+              Soutenez notre travail en nous offrant un café. Chaque don nous aide à améliorer la plateforme.              </p>
               <a 
   href="https://www.buymeacoffee.com/maroconcours" 
   target="_blank" 

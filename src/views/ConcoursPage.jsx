@@ -167,27 +167,29 @@ const ConcoursPage = () => {
             filteredConcours.map((concours) => (
               <div
                 key={concours.id}
-                className={`p-5 rounded-xl shadow-md border transition-all duration-300 hover:shadow-lg ${
-                  concours.isAvailable
-                    ? "bg-white border-green-500"
-                    : "bg-gray-50 border-gray-300"
+                className={`p-5 rounded-xl shadow-md border  transition-all border-green-500 duration-300 hover:shadow-lg ${
+                  darkMode
+                    ? "bg-gray-900 "
+                    : "bg-gray-50"
                 }`}
               >
                 <h2 className="font-semibold text-xl text-blue-700 mb-1">
                   {concours.title}
                 </h2>
-                <p className="text-xs text-gray-500 mb-2">{concours.date}</p>
+                <div className={`${darkMode ? 'text-white' : 'text-gray-700'}`} >
+                <p className={`text-2xs mb-2 ${darkMode ? ' text-orange-500 ' : 'text-red-400'}`}>{concours.date}</p>
                 
                 <div className="space-y-1 mb-4">
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm ">
                     <span className="font-medium">Niveau:</span> {concours.niveau}
                   </p>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm ">
                     <span className="font-medium">Diplôme:</span> {concours.choix}
                   </p>
-                  <p className="text-sm text-gray-700">
+                  <p className="text-sm ">
                     <span className="font-medium">Domaine:</span> {concours.domaine}
                   </p>
+                  </div>
                 </div>
 
                 <button
