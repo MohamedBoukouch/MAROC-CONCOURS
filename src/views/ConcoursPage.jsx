@@ -8,7 +8,7 @@ import { DarkModeContext } from '../context/DarkModeContext';
 
 const ConcoursPage = () => {
   const location = useLocation();
-  const initialDomaine = location.state?.selectedDomaine || "";
+  const initialDomaine = location.state?.selectedDomaine || "?";
 
   const { darkMode } = useContext(DarkModeContext);
   const [searchQuery, setSearchQuery] = useState("");
