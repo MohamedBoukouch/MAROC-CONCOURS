@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa"; // Social Media Icons
+import { FaFacebook, FaInstagram, FaWhatsapp , FaLinkedin } from "react-icons/fa"; // Social Media Icons
 import { AiOutlineMail } from "react-icons/ai"; // Email Icon
 import emailjs from "emailjs-com";
 import { DarkModeContext } from '../context/DarkModeContext';
@@ -106,8 +106,13 @@ const ContactPage = () => {
           <a href="https://www.instagram.com/maroconcours" target="_blank" rel="noopener noreferrer" className="text-2xl text-pink-600 hover:text-pink-800">
             <FaInstagram />
           </a>
-          <a href="https://www.x.com/medbkch" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-400 hover:text-blue-600">
-            <FaTwitter />
+          <a 
+            href="https://chat.whatsapp.com/HMgqaH3qpE9BwcyZCliwmr"  // Replace with your WhatsApp number or link
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-2xl text-green-500 hover:text-green-600"
+          >
+            <FaWhatsapp />
           </a>
           <a href="https://www.linkedin.com/in/mohamed-boukouch-b889b824a/" target="_blank" rel="noopener noreferrer" className="text-2xl text-blue-700 hover:text-blue-900">
             <FaLinkedin />
@@ -118,7 +123,8 @@ const ContactPage = () => {
       {/* Email Section */}
       <div className="mt-10 text-center">
         <h2 className="text-1xl font-bold text-blue-700 mb-4">Email Us Directly</h2>
-        <p className="text-lg text-gray-700">
+        {/* <p className="text-lg text-gray-700"> */}
+        <p className={`${darkMode ? 'text-gray-50' : 'text-gray-800'} text-lg`} >
           If you prefer, you can also email us directly at
           <a href="mailto:your-email@example.com" className="text-blue-600 font-semibold hover:underline ml-1">
             <AiOutlineMail className="inline-block mb-1" />concoursmaroc7@gmail.com

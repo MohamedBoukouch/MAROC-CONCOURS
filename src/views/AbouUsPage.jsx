@@ -29,11 +29,11 @@ const AboutUsPage = () => {
       <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
         <div>
           <h2 className="text-3xl font-bold text-blue-800 mb-6">Notre Mission</h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">
+          <p className={`text-lg leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Concours Maroc a été créé pour révolutionner la préparation aux concours des grandes écoles marocaines. 
             Nous offrons des ressources pédagogiques de qualité, accessibles à tous les étudiants.
           </p>
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className={`text-lg leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
             Notre plateforme rassemble annales, corrigés, conseils méthodologiques et une communauté d'entraide 
             pour maximiser vos chances de réussite.
           </p>
@@ -146,7 +146,7 @@ const AboutUsPage = () => {
         <FiCheckCircle className="text-4xl mx-auto mb-4 text-blue-200" />
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">Prêt à réussir vos concours ?</h2>
         <p className="text-lg sm:text-xl mb-6 opacity-90">
-          Rejoignez notre communauté de plus de 10,000 étudiants
+          Rejoignez notre communauté de plus de 300 étudiants
         </p>
         <button onClick={joinWhatsAppGroup} className=" hover:cursor-pointer hover:bg-green-400 group bg-white text-blue-600 px-8 py-3 rounded-full font-bold hover:bg-blue-50 transition-all flex items-center justify-center mx-auto gap-2 shadow-md">
           Commencer maintenant
