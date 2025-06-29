@@ -31,4 +31,4 @@ dist-ssr
 .env.test
 .env.production
 
-concours.json
+data/concours.json
